@@ -1,4 +1,4 @@
-package com.lukaszbezlada.repository;
+package com.lukaszbezlada.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
