@@ -35,4 +35,5 @@ public class SkyObjectController {
     public void deleteAccount(@PathVariable(value = "id") Long id) {
         skyObjectRepository.deleteById(id);
     }
+
 }
