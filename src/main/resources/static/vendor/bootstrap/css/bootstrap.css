@@ -481,6 +481,11 @@ mark,
   height: auto;
 }
 
+.img-messier {
+  max-width: 10%;
+  max-height: 10%;
+}
+
 .img-thumbnail {
   padding: 0.25rem;
   background-color: #fff;
