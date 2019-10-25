@@ -481,6 +481,11 @@ mark,
   height: auto;
 }
 
+.img-messier {
+  max-width: 10%;
+  max-height: 10%;
+}
+
 .img-thumbnail {
   padding: 0.25rem;
   background-color: #fff;
@@ -1565,7 +1570,7 @@ pre code {
 
 .table-hover tbody tr:hover {
   color: #212529;
-  background-color: rgba(0, 0, 0, 0.075);
+  background-color: #FFFFFF;
 }
 
 .table-primary,
