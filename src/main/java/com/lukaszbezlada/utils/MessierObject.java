@@ -1,13 +1,7 @@
 package com.lukaszbezlada.utils;
 
 import lombok.*;
-import lombok.Builder;
-import lombok.Setter;
 
-@Setter
-@Builder
-@Value
-@AllArgsConstructor
 public class MessierObject  {
 
     private int id;
@@ -18,6 +12,21 @@ public class MessierObject  {
     private Long distance;
     private Long brightness;
     private String imgPath;
+
+    public MessierObject(int id, String messierNumber, String NGCNumber, String name, String type, Long distance, Long brightness, String imgPath) {
+        this.id = id;
+        this.messierNumber = messierNumber;
+        this.NGCNumber = NGCNumber;
+        this.name = name;
+        this.type = type;
+        this.distance = distance;
+        this.brightness = brightness;
+        this.imgPath = imgPath;
+    }
+
+    public MessierObject() {
+
+    }
 
     public void setId(int id) {
         this.id = id;
@@ -49,5 +58,37 @@ public class MessierObject  {
 
     public void setImgPath(String imgPath) {
         this.imgPath = imgPath;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getMessierNumber() {
+        return messierNumber;
+    }
+
+    public String getNGCNumber() {
+        return NGCNumber;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public Long getDistance() {
+        return distance;
+    }
+
+    public Long getBrightness() {
+        return brightness;
+    }
+
+    public String getImgPath() {
+        return imgPath;
     }
 }
