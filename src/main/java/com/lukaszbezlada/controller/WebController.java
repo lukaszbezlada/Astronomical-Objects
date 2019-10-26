@@ -8,22 +8,22 @@ public class WebController {
 
     @RequestMapping("/")
     public String index() {
-        return "index.html";
+        return "index";
     }
 
     @RequestMapping("/account")
     public String account() {
-        return "account.html";
+        return "account";
     }
 
     @RequestMapping("/messierdirectory")
     public String messier() {
-        return "messierdirectory.html";
+        return "messierdirectory";
     }
 
     @RequestMapping("/registration")
     public String registration() {
-        return "registration.html";
+        return "registration";
     }
 
 }
