@@ -1,14 +1,16 @@
 package com.lukaszbezlada.utils;
 
+import org.springframework.stereotype.Component;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
-
+@Component
 public class MessierService {
-    private static ArrayList<MessierObject> messierList = new ArrayList<>();
+    public static ArrayList<MessierObject> messierList = new ArrayList<>();
     private static String path = "/home/lukasz/Pulpit/Projekty/Astronomical-Objects/src/main/resources/messier.csv";
 
     public static ArrayList readFile() {
