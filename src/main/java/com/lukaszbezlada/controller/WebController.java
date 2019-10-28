@@ -1,6 +1,9 @@
 package com.lukaszbezlada.controller;
 
+import com.lukaszbezlada.entity.User;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -21,8 +24,9 @@ public class WebController {
         return "messierdirectory";
     }
 
-    @RequestMapping("/registration")
-    public String registration() {
+    @GetMapping("/registration")
+    public String registration(Model model) {
+        model.addAttribute("formRegistration", new User());
         return "registration";
     }
 
