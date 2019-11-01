@@ -36,10 +36,12 @@ public class MessierService {
             messierObject.setId(Integer.parseInt(l[0]));
             messierObject.setMessierNumber(l[1]);
             messierObject.setNGCNumber(l[2]);
-            messierObject.setType(l[3]);
-            messierObject.setDistance(Long.valueOf(l[4]));
-            messierObject.setBrightness(Long.valueOf(l[5]));
-            messierObject.setImgPath(l[6]);
+            messierObject.setName(l[3]);
+            messierObject.setType(l[4]);
+            messierObject.setDistance(Long.valueOf(l[5]));
+            messierObject.setBrightness(Long.valueOf(l[6]));
+            messierObject.setImgPath(l[7]);
+            messierObject.setImgBigPath(l[8]);
 
             messierObjects.add(messierObject);
         }

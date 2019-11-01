@@ -12,8 +12,9 @@ public class MessierObject  {
     private Long distance;
     private Long brightness;
     private String imgPath;
+    private String imgBigPath;
 
-    public MessierObject(int id, String messierNumber, String NGCNumber, String name, String type, Long distance, Long brightness, String imgPath) {
+    public MessierObject(int id, String messierNumber, String NGCNumber, String name, String type, Long distance, Long brightness, String imgPath, String imgBigPath) {
         this.id = id;
         this.messierNumber = messierNumber;
         this.NGCNumber = NGCNumber;
@@ -22,6 +23,7 @@ public class MessierObject  {
         this.distance = distance;
         this.brightness = brightness;
         this.imgPath = imgPath;
+        this.imgBigPath = imgBigPath;
     }
 
     public MessierObject() {
@@ -90,5 +92,28 @@ public class MessierObject  {
 
     public String getImgPath() {
         return imgPath;
+    }
+
+    public String getImgBigPath() {
+        return imgBigPath;
+    }
+
+    public void setImgBigPath(String imgBigPath) {
+        this.imgBigPath = imgBigPath;
+    }
+
+    @Override
+    public String toString() {
+        return "MessierObject{" +
+                "id=" + id +
+                ", messierNumber='" + messierNumber + '\'' +
+                ", NGCNumber='" + NGCNumber + '\'' +
+                ", name='" + name + '\'' +
+                ", type='" + type + '\'' +
+                ", distance=" + distance +
+                ", brightness=" + brightness +
+                ", imgPath='" + imgPath + '\'' +
+                ", imgBigPath='" + imgBigPath + '\'' +
+                '}';
     }
 }
