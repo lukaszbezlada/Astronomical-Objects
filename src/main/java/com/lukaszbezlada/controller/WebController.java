@@ -1,6 +1,7 @@
 package com.lukaszbezlada.controller;
 
 import com.lukaszbezlada.entity.User;
+import com.lukaszbezlada.utils.MessierService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,8 +20,9 @@ public class WebController {
         return "account";
     }
 
-    @RequestMapping("/messierdirectory")
-    public String messier() {
+    @GetMapping("/messierdirectory")
+    public String messier(Model model) {
+        model.addAttribute(MessierService.readFile());
         return "messierdirectory";
     }
 
