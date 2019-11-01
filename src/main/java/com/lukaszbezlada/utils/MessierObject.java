@@ -91,4 +91,18 @@ public class MessierObject  {
     public String getImgPath() {
         return imgPath;
     }
+
+    @Override
+    public String toString() {
+        return "MessierObject{" +
+                "id=" + id +
+                ", messierNumber='" + messierNumber + '\'' +
+                ", NGCNumber='" + NGCNumber + '\'' +
+                ", name='" + name + '\'' +
+                ", type='" + type + '\'' +
+                ", distance=" + distance +
+                ", brightness=" + brightness +
+                ", imgPath='" + imgPath + '\'' +
+                '}';
+    }
 }

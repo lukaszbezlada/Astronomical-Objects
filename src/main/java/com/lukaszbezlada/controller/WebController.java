@@ -1,6 +1,7 @@
 package com.lukaszbezlada.controller;
 
 import com.lukaszbezlada.entity.User;
+import com.lukaszbezlada.utils.MessierObject;
 import com.lukaszbezlada.utils.MessierService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,7 +23,8 @@ public class WebController {
 
     @GetMapping("/messierdirectory")
     public String messier(Model model) {
-        model.addAttribute(MessierService.readFile());
+        model.addAttribute("messierObjectAttribute", new MessierObject());
+        model.addAttribute("messierListAttribute", MessierService.readFile());
         return "messierdirectory";
     }
 

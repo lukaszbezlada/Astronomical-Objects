@@ -74,23 +74,24 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <th>M1</th>
-                <td>NGC 1952</td>
-                <td>Mgławica Kraba</td>
-                <td>pozostalosc po supernowej</td>
-                <td>6,3</td>
-                <td>9,0</td>
-                <td> </td>
+            <tr th:each="messierObjectAttribute: ${messierListAttribute}" th:object="${messierObjectAttribute}">
+                <td th:text="*{messierNumber}">Messier Number</td>
+                <td th:text="*{NGCNumber}">NGC Number</td>
+                <td th:text="*{name}">Name</td>
+                <td th:text="*{type}">Type</td>
+                <td th:text="*{distance}">Distance</td>
+                <td th:text="*{brightness}">Brightness</td>
+                <td> <img th:src="*{imgPath}"></td>
+
             </tr>
-            <tr>
-                <th>M1</th>
-                <td>Thornton</td>
-                <td>@fat</td>
-                <td>@fat</td>
-                <td>@fat</td>
-                <td>@fat</td>
-                <td>@fat</td>
+            <tr th:remove="all">
+                <td>Mx</td>
+                <td>NGCx</td>
+                <td>xxx</td>
+                <td>xxx</td>
+                <td>xxx</td>
+                <td>xxx</td>
+                <td>xxx</td>
             </tr>
             </tbody>
         </table>
