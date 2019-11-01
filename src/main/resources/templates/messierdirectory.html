@@ -81,7 +81,7 @@
                 <td th:text="*{type}">Type</td>
                 <td th:text="*{distance}">Distance</td>
                 <td th:text="*{brightness}">Brightness</td>
-                <td> <img th:src="*{imgPath}"></td>
+                <td> <a th:href="*{imgBigPath}" target=_top><img th:src="*{imgPath}" alt="kliknij, aby powiększyć"></a></td>
 
             </tr>
             <tr th:remove="all">

@@ -41,6 +41,7 @@ public class MessierService {
             messierObject.setDistance(Long.valueOf(l[5]));
             messierObject.setBrightness(Long.valueOf(l[6]));
             messierObject.setImgPath(l[7]);
+            messierObject.setImgBigPath(l[8]);
 
             messierObjects.add(messierObject);
         }
