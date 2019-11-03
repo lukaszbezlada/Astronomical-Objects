@@ -12,8 +12,12 @@ import java.util.Optional;
 @RequestMapping("/api")
 public class SkyObjectController {
 
-    @Autowired
     private SkyObjectRepository skyObjectRepository;
+
+    @Autowired
+    public SkyObjectController(SkyObjectRepository skyObjectRepository) {
+        this.skyObjectRepository = skyObjectRepository;
+    }
 
     @GetMapping("/skyObjects")
     public Iterable<SkyObject> getSkyObjects() {

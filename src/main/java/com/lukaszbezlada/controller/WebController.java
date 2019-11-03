@@ -2,7 +2,7 @@ package com.lukaszbezlada.controller;
 
 import com.lukaszbezlada.entity.User;
 import com.lukaszbezlada.utils.MessierObject;
-import com.lukaszbezlada.utils.MessierServiceImpl;
+import com.lukaszbezlada.utils.MessierService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,8 +12,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class WebController {
 
+
+    private MessierService messierService;
+
     @Autowired
-    MessierServiceImpl messierService;
+    public WebController(MessierService messierService) {
+        this.messierService = messierService;
+    }
 
     @RequestMapping("/")
     public String index() {
