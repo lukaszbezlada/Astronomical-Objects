@@ -2,7 +2,7 @@ package com.lukaszbezlada.utils;
 
 import lombok.*;
 
-public class MessierObject  {
+public class MessierObject {
 
     private int id;
     private String messierNumber;

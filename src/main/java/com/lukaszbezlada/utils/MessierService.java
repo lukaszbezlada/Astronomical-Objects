@@ -19,7 +19,7 @@ public class MessierService {
         try {
             read = (ArrayList<String>) Files.readAllLines(filePath);
         } catch (IOException e) {
-           e.printStackTrace();
+            e.printStackTrace();
         }
         read.remove(0);
         messierList = toObjects(read);
@@ -27,7 +27,7 @@ public class MessierService {
     }
 
     private static ArrayList toObjects(ArrayList<String> read) {
-        ArrayList <MessierObject> messierObjects = new ArrayList<>();
+        ArrayList<MessierObject> messierObjects = new ArrayList<>();
 
         for (String line : read) {
             String[] l = line.split(",");

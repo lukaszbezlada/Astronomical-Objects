@@ -11,8 +11,8 @@ import java.time.LocalDateTime;
 @Builder
 @AllArgsConstructor
 @Entity
-@Table(name="object")
-public class SkyObject implements Serializable{
+@Table(name = "object")
+public class SkyObject implements Serializable {
     private static final long serialVersionUID = 6359254733772877789L;
 
     @Id
