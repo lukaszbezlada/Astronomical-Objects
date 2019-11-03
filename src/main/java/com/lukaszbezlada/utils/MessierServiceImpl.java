@@ -1,6 +1,5 @@
 package com.lukaszbezlada.utils;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
@@ -11,7 +10,6 @@ import java.util.ArrayList;
 
 @Component
 public class MessierServiceImpl implements MessierService {
-    private static ArrayList<MessierObject> messierList = new ArrayList<>();
     private static String path = "/home/lukasz/Pulpit/Projekty/Astronomical-Objects/src/main/resources/messier.csv";
 
     public ArrayList readFile() {
@@ -23,8 +21,7 @@ public class MessierServiceImpl implements MessierService {
             e.printStackTrace();
         }
         read.remove(0);
-        messierList = toObjects(read);
-        return messierList;
+        return (ArrayList<MessierObject>) toObjects(read);
     }
 
     public ArrayList toObjects(ArrayList<String> read) {
@@ -32,7 +29,7 @@ public class MessierServiceImpl implements MessierService {
 
         for (String line : read) {
             String[] l = line.split(",");
-//            #TODO zamienić na Builder, spr czy nie da się wstrzyknąć dla każdego użycia
+//            #TODO zamienić na Builder
             MessierObject messierObject = new MessierObject();
             messierObject.setId(Integer.parseInt(l[0]));
             messierObject.setMessierNumber(l[1]);
