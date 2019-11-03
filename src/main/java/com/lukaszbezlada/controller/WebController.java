@@ -2,7 +2,8 @@ package com.lukaszbezlada.controller;
 
 import com.lukaszbezlada.entity.User;
 import com.lukaszbezlada.utils.MessierObject;
-import com.lukaszbezlada.utils.MessierService;
+import com.lukaszbezlada.utils.MessierServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class WebController {
+
+    @Autowired
+    MessierServiceImpl messierService;
 
     @RequestMapping("/")
     public String index() {
@@ -24,7 +28,7 @@ public class WebController {
     @GetMapping("/messierdirectory")
     public String messier(Model model) {
         model.addAttribute("messierObjectAttribute", new MessierObject());
-        model.addAttribute("messierListAttribute", MessierService.readFile());
+        model.addAttribute("messierListAttribute", messierService.readFile());
         return "messierdirectory";
     }
 

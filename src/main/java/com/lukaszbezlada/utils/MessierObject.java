@@ -1,7 +1,9 @@
 package com.lukaszbezlada.utils;
 
 import lombok.*;
+import org.springframework.stereotype.Component;
 
+@Component
 public class MessierObject {
 
     private int id;
