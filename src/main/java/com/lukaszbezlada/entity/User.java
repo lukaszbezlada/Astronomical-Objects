@@ -1,7 +1,5 @@
 package com.lukaszbezlada.entity;
 
-import lombok.*;
-
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -29,15 +27,15 @@ public class User implements Serializable {
 
     @Column
     private String email;
-    //TODO zrobić enuma ze statusem użytkownika
-    @Column
-    private String status;
+
+    @Enumerated(EnumType.STRING)
+    private UserStatus status;
 
     public User() {
         // for JPA
     }
 
-    public User(String login, String password, String firstName, String lastName, String email, String status) {
+    public User(String login, String password, String firstName, String lastName, String email, UserStatus status) {
         this.login = login;
         this.password = password;
         this.firstName = firstName;
@@ -74,7 +72,7 @@ public class User implements Serializable {
         return email;
     }
 
-    public String getStatus() {
+    public UserStatus getStatus() {
         return status;
     }
 
@@ -102,7 +100,7 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(UserStatus status) {
         this.status = status;
     }
 }
