@@ -8,13 +8,13 @@ import java.util.Optional;
 
 public interface SkyObjectRepository extends CrudRepository<SkyObject, Long> {
 
-    List<SkyObject> findAll();
-
-    SkyObject findByAuthorName(String authorName);
-
-    SkyObject findById(int id);
-
-    Optional<SkyObject> findByName(String name);
-
-    Optional<SkyObject> findByNameContains(String name);
+//    List<SkyObject> findAll();
+//
+//    SkyObject findByAuthorName(String authorName);
+//
+//    Optional<SkyObject> findById(Long skyobject_id);
+//
+//    Optional<SkyObject> findByName(String name);
+//
+//    Optional<SkyObject> findByNameContains(String name);
 }

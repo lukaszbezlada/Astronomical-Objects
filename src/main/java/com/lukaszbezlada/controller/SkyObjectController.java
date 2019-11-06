@@ -12,32 +12,32 @@ import java.util.Optional;
 @RequestMapping("/api")
 public class SkyObjectController {
 
-    private SkyObjectRepository skyObjectRepository;
-
-    @Autowired
-    public SkyObjectController(SkyObjectRepository skyObjectRepository) {
-        this.skyObjectRepository = skyObjectRepository;
-    }
-
-    @GetMapping("/skyObjects")
-    public Iterable<SkyObject> getSkyObjects() {
-        Iterable<SkyObject> all = skyObjectRepository.findAll();
-        return all;
-    }
-
-    @GetMapping("/getSkyObject/{name}")
-    public Optional<SkyObject> getSkyObjectByName(@PathVariable(value = "name") String name) {
-        return skyObjectRepository.findByNameContains(name);
-    }
-
-    @PostMapping(value = "/skyObject", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void addNewSkyObject(@RequestBody SkyObject skyObject) {
-        skyObjectRepository.save(skyObject);
-    }
-
-    @DeleteMapping("/skyObject/{id}")
-    public void deleteAccount(@PathVariable(value = "id") Long id) {
-        skyObjectRepository.deleteById(id);
-    }
+//    private SkyObjectRepository skyObjectRepository;
+//
+//    @Autowired
+//    public SkyObjectController(SkyObjectRepository skyObjectRepository) {
+//        this.skyObjectRepository = skyObjectRepository;
+//    }
+//
+//    @GetMapping("/skyObjects")
+//    public Iterable<SkyObject> getSkyObjects() {
+//        Iterable<SkyObject> all = skyObjectRepository.findAll();
+//        return all;
+//    }
+//
+//    @GetMapping("/getSkyObject/{name}")
+//    public Optional<SkyObject> getSkyObjectByName(@PathVariable(value = "name") String name) {
+//        return skyObjectRepository.findByNameContains(name);
+//    }
+//
+//    @PostMapping(value = "/skyObject", consumes = MediaType.APPLICATION_JSON_VALUE)
+//    public void addNewSkyObject(@RequestBody SkyObject skyObject) {
+//        skyObjectRepository.save(skyObject);
+//    }
+//
+//    @DeleteMapping("/skyObject/{id}")
+//    public void deleteAccount(@PathVariable(value = "id") Long id) {
+//        skyObjectRepository.deleteById(id);
+//    }
 
 }

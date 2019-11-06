@@ -2,6 +2,7 @@ package com.lukaszbezlada.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "user")
@@ -11,7 +12,7 @@ public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long user_id;
 
     @Column
     private String login;
@@ -31,6 +32,9 @@ public class User implements Serializable {
     @Enumerated(EnumType.STRING)
     private UserStatus status;
 
+    @OneToMany(mappedBy="user")
+    private List<SkyObject> skyObjectList;
+
     public User() {
         // for JPA
     }
@@ -44,63 +48,81 @@ public class User implements Serializable {
         this.status = status;
     }
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
+    public Long getUser_id() {
+        return user_id;
     }
 
-    public Integer getId() {
-        return id;
+    public void setUser_id(Long user_id) {
+        this.user_id = user_id;
     }
 
     public String getLogin() {
         return login;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public UserStatus getStatus() {
-        return status;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     public void setLogin(String login) {
         this.login = login;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     public void setPassword(String password) {
         this.password = password;
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
+
     public void setFirstName(String firstName) {
         this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
     }
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
     public void setEmail(String email) {
         this.email = email;
     }
 
+    public UserStatus getStatus() {
+        return status;
+    }
+
     public void setStatus(UserStatus status) {
         this.status = status;
+    }
+
+    public List<SkyObject> getSkyObjectList() {
+        return skyObjectList;
+    }
+
+    public void setSkyObjectList(List<SkyObject> skyObjectList) {
+        this.skyObjectList = skyObjectList;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "user_id=" + user_id +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", status=" + status +
+                ", skyObjectList=" + skyObjectList +
+                '}';
     }
 }
