@@ -1,6 +1,7 @@
 package com.lukaszbezlada.repository;
 
 import com.lukaszbezlada.entity.User;
+import com.lukaszbezlada.entity.UserStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,6 +21,7 @@ public class UserDaoBean implements UserDao {
 
     @Override
     public void addUser(User user) {
+        user.setStatus(UserStatus.Aktywny);
         entityManager.persist(user);
     }
 
