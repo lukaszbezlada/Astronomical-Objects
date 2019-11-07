@@ -1,5 +1,6 @@
 package com.lukaszbezlada.controller;
 
+import com.lukaszbezlada.entity.User;
 import com.lukaszbezlada.repository.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,7 +18,9 @@ public class TestClass {
 
     @GetMapping("/showUser")
     public String showUser() {
-        System.out.println(userDao.getUser(1L).toString());
+        System.out.println(userDao.getUser(3L).toString());
+        User user1 = userDao.getUser(3L);
+        userDao.deleteUser(user1);
         return "account";
     }
 }

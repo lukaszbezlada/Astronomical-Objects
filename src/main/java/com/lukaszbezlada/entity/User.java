@@ -32,7 +32,7 @@ public class User implements Serializable {
     @Enumerated(EnumType.STRING)
     private UserStatus status;
 
-    @OneToMany(mappedBy="user", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy="user", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     private List<SkyObject> skyObjectList;
 
     public User() {
