@@ -14,25 +14,25 @@ public class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long user_id;
 
-    @Column
+    @Column(nullable = false)
     private String login;
 
-    @Column
+    @Column(nullable = false)
     private String password;
 
-    @Column
+    @Column(nullable = false)
     private String firstName;
 
-    @Column
+    @Column(nullable = false)
     private String lastName;
 
-    @Column
+    @Column(nullable = false)
     private String email;
 
     @Enumerated(EnumType.STRING)
     private UserStatus status;
 
-    @OneToMany(mappedBy="user", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     private List<SkyObject> skyObjectList;
 
     public User() {

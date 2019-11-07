@@ -17,13 +17,13 @@ public class SkyObject implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long skyobject_id;
 
-    @Column
+    @Column(nullable = false)
     private String name;
 
-    @Column
+    @Column(nullable = false)
     private LocalDateTime dateTime;
 
-    @Column
+    @Column(nullable = false)
     private String image;
 
     @ManyToOne
