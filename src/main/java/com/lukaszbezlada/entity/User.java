@@ -12,7 +12,7 @@ public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long user_id;
+    private Long id;
 
     @Column(nullable = false)
     private String login;
@@ -48,12 +48,9 @@ public class User implements Serializable {
         this.status = status;
     }
 
-    public Long getUser_id() {
-        return user_id;
-    }
 
-    public void setUser_id(Long user_id) {
-        this.user_id = user_id;
+    public Long getUser_id() {
+        return id;
     }
 
     public String getLogin() {
@@ -115,7 +112,7 @@ public class User implements Serializable {
     @Override
     public String toString() {
         return "User{" +
-                "user_id=" + user_id +
+                "user_id=" + id +
                 ", login='" + login + '\'' +
                 ", password='" + password + '\'' +
                 ", firstName='" + firstName + '\'' +

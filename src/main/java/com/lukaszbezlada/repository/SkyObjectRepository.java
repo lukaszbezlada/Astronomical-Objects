@@ -1,20 +1,19 @@
 package com.lukaszbezlada.repository;
 
 import com.lukaszbezlada.entity.SkyObject;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Optional;
 
-public interface SkyObjectRepository extends CrudRepository<SkyObject, Long> {
+@Repository
+public interface SkyObjectRepository extends JpaRepository<SkyObject, Long> {
 
-//    List<SkyObject> findAll();
-//
-//    SkyObject findByAuthorName(String authorName);
+    List<SkyObject> findAll();
+
 //
 //    Optional<SkyObject> findById(Long skyobject_id);
 //
 //    Optional<SkyObject> findByName(String name);
-//
-//    Optional<SkyObject> findByNameContains(String name);
+
 }

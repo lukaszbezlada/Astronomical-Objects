@@ -1,7 +1,8 @@
 package com.lukaszbezlada.controller;
 
 import com.lukaszbezlada.entity.User;
-import com.lukaszbezlada.repository.UserDao;
+import com.lukaszbezlada.entity.UserStatus;
+import com.lukaszbezlada.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,19 +13,19 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class UserController {
 
-
-    private UserDao userDao;
+    private UserRepository userRepository;
 
     @Autowired
-    public UserController(UserDao userDao) {
-        this.userDao = userDao;
+    public UserController(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
     @PostMapping("/addUser")
     public String addArticle(@ModelAttribute User formRegistration, Model model) {
         if (checkNotEmpty(formRegistration)) {
             model.addAttribute("formRegistration", formRegistration);
-            userDao.addUser(formRegistration);
+            formRegistration.setStatus(UserStatus.Aktywny);
+            userRepository.save(formRegistration);
             return "success";
         } else
             return "redirect:sorry";
