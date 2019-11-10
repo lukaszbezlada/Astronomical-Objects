@@ -21,19 +21,18 @@ public class UserController {
     }
 
     @PostMapping("/addUser")
-    public String addArticle(@ModelAttribute User formRegistration, Model model) {
+    public String addUser(@ModelAttribute User formRegistration, Model model) {
         if (checkNotEmpty(formRegistration)) {
-            model.addAttribute("formRegistration", formRegistration);
             formRegistration.setStatus(UserStatus.Aktywny);
             userRepository.save(formRegistration);
-            return "success";
-        } else
-            return "redirect:sorry";
-    }
-
-    @GetMapping("/sorry")
-    public String error() {
-        return "errorMessage";
+            String registrationSuccess = "Utworzono poprawnie konto";
+            model.addAttribute("registrationSuccess", registrationSuccess);
+            return "account";
+        } else {
+            String registrationError = "Uzupełnij wszystkie pola!";
+            model.addAttribute("registrationError", registrationError);
+            return "redirect:/registration";
+        }
     }
 
     private boolean checkNotEmpty(User user) {
