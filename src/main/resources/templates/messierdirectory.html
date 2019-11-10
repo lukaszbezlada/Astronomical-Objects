@@ -18,16 +18,10 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#about">O stronie</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#projects">Katalog Messiera</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="/account">Zaloguj</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#signup">Kontakt</a>
+                    <a class="nav-link js-scroll-trigger" href="/registration">Rejestracja</a>
                 </li>
             </ul>
         </div>
@@ -75,11 +69,7 @@
 
 
 <!-- Footer -->
-<footer class="bg-black small text-center text-white-50">
-    <div class="container">
-        Copyright &copy; Astronomical Objects 2019
-    </div>
-</footer>
+<footer class="bg-black small text-center text-white-50" th:include="index :: footer"></footer>
 
 <!-- Bootstrap core JavaScript -->
 <script src="../static/vendor/jquery/jquery.min.js" th:src="@{vendor/jquery/jquery.min.js}"></script>
