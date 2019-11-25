@@ -1,7 +1,9 @@
 package com.lukaszbezlada.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.List;
@@ -17,28 +19,23 @@ public class User implements Serializable {
     private Long id;
 
     @Column
-    @NotEmpty(message = "{com.lukaszbezlada.entity.User.login.NotEmpty}")
-    @Size(min=3, max=10, message = "{com.lukaszbezlada.entity.User.login.Size}")
+    @Pattern(regexp = "^[\\p{Alnum}]{3,10}$", message = "{com.lukaszbezlada.entity.User.login.Pattern}")
     private String login;
 
     @Column
-    @NotEmpty(message = "{com.lukaszbezlada.entity.User.password.NotEmpty}")
-    @Size(min=3, max=10, message = "{com.lukaszbezlada.entity.User.password.Size}")
+    @Size(min=5, max=10, message = "{com.lukaszbezlada.entity.User.password.Size}")
     private String password;
 
     @Column
-    @NotEmpty(message = "{com.lukaszbezlada.entity.User.firstName.NotEmpty}")
-    @Size(min=3, max=10, message = "{com.lukaszbezlada.entity.User.firstName.Size}")
+    @Pattern(regexp = "^[\\p{Alnum}]{3,10}$", message = "{com.lukaszbezlada.entity.User.firstName.Pattern}")
     private String firstName;
 
     @Column
-    @NotEmpty(message = "{com.lukaszbezlada.entity.User.lastName.NotEmpty}")
-    @Size(min=3, max=10, message = "{com.lukaszbezlada.entity.User.lastName.Size}")
+    @Pattern(regexp = "^[\\p{Alnum}]{3,10}$", message = "{com.lukaszbezlada.entity.User.lastName.Pattern}")
     private String lastName;
 
     @Column
-    @NotEmpty(message = "{com.lukaszbezlada.entity.User.email.NotEmpty}")
-    @Size(min=3, max=10, message = "{com.lukaszbezlada.entity.User.email.Size}")
+    @Email(message = "{com.lukaszbezlada.entity.User.email.Email}")
     private String email;
 
     @Enumerated(EnumType.STRING)
