@@ -39,7 +39,7 @@ public class WebController {
 
     @GetMapping("/registration")
     public String registration(Model model) {
-        model.addAttribute("formRegistration", new User());
+        model.addAttribute("user", new User());
         return "registration";
     }
 

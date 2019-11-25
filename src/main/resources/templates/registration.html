@@ -32,24 +32,28 @@
 <header class="masthead">
     <div class="container d-flex h-100 align-items-center">
         <div class="mx-auto text-center">
-            <h3 class="text-white mb-4" th:if="${registrationError} != null" th:text="${registrationError}"></h3>
             <h3 class="text-white mb-4">Rejestracja</h3>
             <div>&nbsp;</div>
-            <form method="POST" th:action="@{/addUser}" class="addUser">
+            <form action="#" method="POST" th:action="@{/addUser}" th:object="${user}" class="addUser">
 
+                <p class="alert-danger" th:if="${#fields.hasErrors('login')}" th:errors="*{login}">Login errors</p>
+                <p class="alert-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email errors</p>
+                <p class="alert-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password errors</p>
+                <p class="alert-danger" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">First name errors</p>
+                <p class="alert-danger" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Last name errors</p>
                 <div class="form-row">
                     <div>
-                        <input type="text" class="form-control" name="login" placeholder="Login" th:field="${formRegistration.login}">
+                        <input type="text" class="form-control" name="login" placeholder="Login" th:field="*{login}">
                     </div>
                     <div>&nbsp;</div>
                     <div>
-                        <input type="email" class="form-control" name="e-mail" placeholder="Adres e-mail" th:field="${formRegistration.email}">
+                        <input type="email" class="form-control" name="e-mail" placeholder="Adres e-mail" th:field="*{email}">
                     </div>
                 </div>
                 <br/>
                 <div class="form-row">
                     <div>
-                        <input type="password" class="form-control" name="password" placeholder="Hasło" th:field="${formRegistration.password}">
+                        <input type="password" class="form-control" name="password" placeholder="Hasło" th:field="*{password}">
                     </div>
                     <div>&nbsp;</div>
                     <div>
@@ -59,11 +63,11 @@
                 <br/>
                 <div class="form-row">
                     <div>
-                        <input type="text"leaf class="form-control" name="firstName" placeholder="Imię" th:field="${formRegistration.firstName}">
+                        <input type="text"leaf class="form-control" name="firstName" placeholder="Imię" th:field="*{firstName}">
                     </div>
                     <div>&nbsp;</div>
                     <div>
-                        <input type="text" class="form-control" name="lastName" placeholder="Nazwisko" th:field="${formRegistration.lastName}">
+                        <input type="text" class="form-control" name="lastName" placeholder="Nazwisko" th:field="*{lastName}">
                     </div>
                 </div>
                 <br/>

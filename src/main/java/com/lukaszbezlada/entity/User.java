@@ -1,6 +1,7 @@
 package com.lukaszbezlada.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 import java.util.List;
 
@@ -14,19 +15,24 @@ public class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column
+    @NotEmpty(message = "{com.lukaszbezlada.entity.User.login.NotEmpty}")
     private String login;
 
-    @Column(nullable = false)
+    @Column
+    @NotEmpty(message = "{com.lukaszbezlada.entity.User.password.NotEmpty}")
     private String password;
 
-    @Column(nullable = false)
+    @Column
+    @NotEmpty(message = "{com.lukaszbezlada.entity.User.firstName.NotEmpty}")
     private String firstName;
 
-    @Column(nullable = false)
+    @Column
+    @NotEmpty(message = "{com.lukaszbezlada.entity.User.lastName.NotEmpty}")
     private String lastName;
 
-    @Column(nullable = false)
+    @Column
+    @NotEmpty(message = "{com.lukaszbezlada.entity.User.email.NotEmpty}")
     private String email;
 
     @Enumerated(EnumType.STRING)
