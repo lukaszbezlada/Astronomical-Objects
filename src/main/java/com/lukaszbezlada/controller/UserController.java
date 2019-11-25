@@ -36,7 +36,7 @@ public class UserController {
             errors.forEach(err -> System.out.println(err.getDefaultMessage()));
         }
 
-        if (!result.hasErrors()) {
+        if (!result.hasErrors() && checkPassword(user)) {
             user.setStatus(UserStatus.Aktywny);
             userRepository.save(user);
             String registrationSuccess = "Utworzono poprawnie konto";
