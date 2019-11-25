@@ -2,6 +2,7 @@ package com.lukaszbezlada.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.List;
 
@@ -17,22 +18,27 @@ public class User implements Serializable {
 
     @Column
     @NotEmpty(message = "{com.lukaszbezlada.entity.User.login.NotEmpty}")
+    @Size(min=3, max=10, message = "{com.lukaszbezlada.entity.User.login.Size}")
     private String login;
 
     @Column
     @NotEmpty(message = "{com.lukaszbezlada.entity.User.password.NotEmpty}")
+    @Size(min=3, max=10, message = "{com.lukaszbezlada.entity.User.password.Size}")
     private String password;
 
     @Column
     @NotEmpty(message = "{com.lukaszbezlada.entity.User.firstName.NotEmpty}")
+    @Size(min=3, max=10, message = "{com.lukaszbezlada.entity.User.firstName.Size}")
     private String firstName;
 
     @Column
     @NotEmpty(message = "{com.lukaszbezlada.entity.User.lastName.NotEmpty}")
+    @Size(min=3, max=10, message = "{com.lukaszbezlada.entity.User.lastName.Size}")
     private String lastName;
 
     @Column
     @NotEmpty(message = "{com.lukaszbezlada.entity.User.email.NotEmpty}")
+    @Size(min=3, max=10, message = "{com.lukaszbezlada.entity.User.email.Size}")
     private String email;
 
     @Enumerated(EnumType.STRING)
