@@ -23,7 +23,7 @@ public class User implements Serializable {
     private String login;
 
     @Column
-    @Size(min=5, max=10, message = "{com.lukaszbezlada.entity.User.password.Size}")
+    @Size(min = 5, max = 10, message = "{com.lukaszbezlada.entity.User.password.Size}")
     private String password;
 
     @Column
@@ -36,6 +36,7 @@ public class User implements Serializable {
 
     @Column
     @Email(message = "{com.lukaszbezlada.entity.User.email.Email}")
+    @Pattern(regexp = "^[A-Za-z0-9+_.-]+@(.+)$", message = "{com.lukaszbezlada.entity.User.email.Pattern}")
     private String email;
 
     @Enumerated(EnumType.STRING)
