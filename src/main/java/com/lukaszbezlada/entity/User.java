@@ -26,6 +26,9 @@ public class User implements Serializable {
     @Size(min = 5, max = 10, message = "{com.lukaszbezlada.entity.User.password.Size}")
     private String password;
 
+    @Transient
+    private String password2;
+
     @Column
     @Pattern(regexp = "^[\\p{Alnum}]{3,10}$", message = "{com.lukaszbezlada.entity.User.firstName.Pattern}")
     private String firstName;
@@ -117,6 +120,14 @@ public class User implements Serializable {
 
     public void setSkyObjectList(List<SkyObject> skyObjectList) {
         this.skyObjectList = skyObjectList;
+    }
+
+    public String getPassword2() {
+        return password2;
+    }
+
+    public void setPassword2(String password2) {
+        this.password2 = password2;
     }
 
     @Override

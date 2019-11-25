@@ -28,9 +28,11 @@ public class UserController {
     @PostMapping("/addUser")
     public String addUser(@Valid @ModelAttribute User user, BindingResult result, Model model) {
 
+        if (!checkPassword(user))
+            model.addAttribute("invalidPasswords", "Podane hasła są różne");
+
         if (result.hasErrors()) {
             List<ObjectError> errors = result.getAllErrors();
-            List<String> deafultsError = new ArrayList<>();
             errors.forEach(err -> System.out.println(err.getDefaultMessage()));
         }
 
@@ -43,12 +45,8 @@ public class UserController {
         }
         return "registration";
     }
-//
-//    private boolean checkNotEmpty(User user) {
-//        return (user.getFirstName() != null && user.getFirstName().length() > 0)
-//                && (user.getLastName() != null && user.getLastName().length() > 0)
-//                && (user.getLogin() != null && user.getLogin().length() > 0)
-//                && (user.getEmail() != null && user.getEmail().length() > 0)
-//                && (user.getPassword() != null && user.getPassword().length() > 0);
-//    }
+
+    private boolean checkPassword(User user) {
+        return user.getPassword2().equals(user.getPassword());
+    }
 }
