@@ -2,7 +2,6 @@ package com.lukaszbezlada.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
@@ -59,6 +58,11 @@ public class User implements Serializable {
         this.lastName = lastName;
         this.email = email;
         this.status = status;
+    }
+
+    public User(String login, String password) {
+        this.login = login;
+        this.password = password;
     }
 
 
