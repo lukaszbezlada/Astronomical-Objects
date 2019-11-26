@@ -44,7 +44,8 @@
                         name errors</p>
                     <p class="alert-danger" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Last name
                         errors</p>
-                    <p class="alert-danger" th:if="${invalidPasswords}" th:text="${invalidPasswords}">Different passwords error</p>
+                    <p class="alert-danger" th:if="${invalidPasswords}" th:text="${invalidPasswords}">Different
+                        passwords error</p>
                 </div>
                 <div class="form-row">
                     <div>
@@ -52,8 +53,13 @@
                     </div>
                     <div>&nbsp;</div>
                     <div>
+<!--                        #TODO poprawić placeholder żeby działało z th:value-->
+                        <input th:if="${e_mail}" type="email" class="form-control" name="e-mail"
+                               th:field="*{email}" th:placeholder="${e_mail}">
+                    </div>
+                    <div>
                         <input type="email" class="form-control" name="e-mail" placeholder="Adres e-mail"
-                               th:field="*{email}">
+                               th:if="!${e_mail}" th:field="*{email}">
                     </div>
                 </div>
                 <br/>

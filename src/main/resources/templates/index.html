@@ -171,10 +171,10 @@
                 <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
                 <h2 class="text-white mb-5">Zarejestruj się, aby dodawać zdjęcia do swojej kolekcji!</h2>
 
-                <form class="form-inline d-flex">
+                <form class="form-inline d-flex" th:action="@{/registration}" method="post">
                     <input type="email" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputEmail"
-                           placeholder="Wpisz adres email...">
-                    <a href="/registration" class="btn btn-info" role="button">Zarejestruj</a>
+                           placeholder="Wpisz adres email..." name="e_mail">
+                    <button type="submit" class="btn btn-info">Zarejestruj</button>
                 </form>
 
             </div>

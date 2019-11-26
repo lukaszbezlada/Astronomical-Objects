@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class WebController {
@@ -21,7 +23,8 @@ public class WebController {
     }
 
     @RequestMapping("/")
-    public String index() {
+    public String index(Model model) {
+        model.addAttribute("user", new User());
         return "index";
     }
 
@@ -40,6 +43,13 @@ public class WebController {
     @GetMapping("/registration")
     public String registration(Model model) {
         model.addAttribute("user", new User());
+        return "registration";
+    }
+
+    @PostMapping("/registration")
+    public String registrationWithEmail(@RequestParam(name="e_mail") String e_mail, Model model) {
+        model.addAttribute("user", new User());
+        model.addAttribute("e_mail", e_mail);
         return "registration";
     }
 
