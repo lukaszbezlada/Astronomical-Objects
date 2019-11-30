@@ -5,7 +5,9 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "user")
@@ -44,6 +46,9 @@ public class User implements Serializable {
     @Enumerated(EnumType.STRING)
     private UserStatus status;
 
+    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    private Set<UserRole> roles = new HashSet<>();
+
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     private List<SkyObject> skyObjectList;
 
@@ -51,20 +56,16 @@ public class User implements Serializable {
         // for JPA
     }
 
-    public User(String login, String password, String firstName, String lastName, String email, UserStatus status) {
+    public User(String login, String password, String firstName, String lastName, String email, UserStatus status, Set<UserRole> roles, List<SkyObject> skyObjectList) {
         this.login = login;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.status = status;
+        this.roles = roles;
+        this.skyObjectList = skyObjectList;
     }
-
-    public User(String login, String password) {
-        this.login = login;
-        this.password = password;
-    }
-
 
     public Long getUser_id() {
         return id;
@@ -134,16 +135,26 @@ public class User implements Serializable {
         this.password2 = password2;
     }
 
+    public Set<UserRole> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<UserRole> roles) {
+        this.roles = roles;
+    }
+
     @Override
     public String toString() {
         return "User{" +
-                "user_id=" + id +
+                "id=" + id +
                 ", login='" + login + '\'' +
                 ", password='" + password + '\'' +
+                ", password2='" + password2 + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", status=" + status +
+                ", roles=" + roles +
                 ", skyObjectList=" + skyObjectList +
                 '}';
     }
