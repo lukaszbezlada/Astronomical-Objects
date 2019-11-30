@@ -1,9 +1,7 @@
 package com.lukaszbezlada.controller;
 
 import com.lukaszbezlada.entity.User;
-import com.lukaszbezlada.entity.UserStatus;
-import com.lukaszbezlada.repository.UserRepository;
-import com.lukaszbezlada.security.PasswordHashing;
+import com.lukaszbezlada.utils.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,13 +16,12 @@ import java.util.List;
 @Controller
 public class UserController {
 
-    private UserRepository userRepository;
-    private final PasswordHashing passwordHashing;
+    private UserService userService;
+
 
     @Autowired
-    public UserController(UserRepository userRepository, PasswordHashing passwordHashing) {
-        this.userRepository = userRepository;
-        this.passwordHashing = passwordHashing;
+    public UserController(UserService userService) {
+        this.userService = userService;
     }
 
     @PostMapping("/addUser")
@@ -39,9 +36,7 @@ public class UserController {
         }
 
         if (!result.hasErrors() && checkPassword(user)) {
-            user.setStatus(UserStatus.Aktywny);
-            passwordHashing.passwordHashing(user);
-            userRepository.save(user);
+            userService.addUserWithDefaultRoleAndStatus(user);
             String registrationSuccess = "Utworzono poprawnie konto";
             model.addAttribute("registrationSuccess", registrationSuccess);
             return "account";
