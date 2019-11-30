@@ -52,14 +52,18 @@
                         <input type="text" class="form-control" name="login" placeholder="Login" th:field="*{login}">
                     </div>
                     <div>&nbsp;</div>
-                    <div>
-<!--                        #TODO poprawić placeholder żeby działało z th:value-->
-                        <input th:if="!${e_mail.isEmpty()}" type="email" class="form-control" name="e-mail"
-                               th:field="*{email}" th:placeholder="${e_mail}" th:value="${e_mail}">
-                    </div>
+<!--                    <div>-->
+<!--&lt;!&ndash;                        #TODO poprawić placeholder żeby działało z th:value&ndash;&gt;-->
+<!--                        <input th:if="!${e_mail.isEmpty()}" type="email" class="form-control" name="e-mail"-->
+<!--                               th:field="*{email}" th:placeholder="${e_mail}" th:value="${e_mail}">-->
+<!--                    </div>-->
+<!--                    <div>-->
+<!--                        <input type="email" class="form-control" name="e-mail" placeholder="Adres e-mail"-->
+<!--                               th:if="${e_mail.isEmpty()}" th:field="*{email}">-->
+<!--                    </div>-->
                     <div>
                         <input type="email" class="form-control" name="e-mail" placeholder="Adres e-mail"
-                               th:if="${e_mail.isEmpty()}" th:field="*{email}">
+                                th:field="*{email}">
                     </div>
                 </div>
                 <br/>

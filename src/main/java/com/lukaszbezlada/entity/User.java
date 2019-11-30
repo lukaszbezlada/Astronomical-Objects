@@ -2,6 +2,7 @@ package com.lukaszbezlada.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
@@ -24,7 +25,7 @@ public class User implements Serializable {
     private String login;
 
     @Column
-    @Size(min = 5, max = 10, message = "{com.lukaszbezlada.entity.User.password.Size}")
+    @NotEmpty(message = "{com.lukaszbezlada.entity.User.password.NotEmpty}")
     private String password;
 
     @Transient
