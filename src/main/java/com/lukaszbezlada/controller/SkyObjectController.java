@@ -36,7 +36,7 @@ public class SkyObjectController {
     }
 
     @DeleteMapping("/skyObject/{id}")
-    public void deleteAccount(@PathVariable(value = "id") Long id) {
+    public void deleteSkyObject(@PathVariable(value = "id") Long id) {
         skyObjectRepository.deleteById(id);
     }
 
