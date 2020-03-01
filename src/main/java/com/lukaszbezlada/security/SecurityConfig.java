@@ -20,13 +20,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/").permitAll()
                 .antMatchers("/css/**", "/js/**", "/img/**", "/vendor/**", "scss/**", "jqery/**","/static/**").permitAll()
+                .antMatchers("/").permitAll()
                 .antMatchers("/registration").permitAll()
                 .antMatchers("/messierdirectory").permitAll()
                 .antMatchers("/addUser").permitAll()
                 .anyRequest().authenticated()
                 .and()
-                .formLogin().loginPage("/account").permitAll();
+                .formLogin().loginPage("/account").permitAll()
+                .and()
+                .logout()
+                .logoutUrl("/logmeout")
+                .logoutSuccessUrl("/")
+                .permitAll();;
     }
 }
