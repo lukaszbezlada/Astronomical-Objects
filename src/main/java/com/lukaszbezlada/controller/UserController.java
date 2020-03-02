@@ -47,4 +47,10 @@ public class UserController {
     private boolean checkPassword(User user) {
         return user.getPassword2().equals(user.getPassword());
     }
+
+    @PostMapping("/account")
+    public String account(Model model) {
+        model.addAttribute("login", "Zalogowano użytkownika");
+        return "index";
+    }
 }

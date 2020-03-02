@@ -36,11 +36,11 @@
             <h3 class="text-white mb-4">Zaloguj się na swoje konto</h3>
             <div>&nbsp;</div>
             <!--TODO uzupełnić action i wystylizować         -->
-            <form method="POST" action="#" class="addUser">
+            <form method="POST" th:action="@{/account}" class="addUser">
 
                 <div class="form">
                     <div>
-                        <input type="text" class="form-control" name="login" placeholder="Login">
+                        <input type="text" class="form-control" name="username" placeholder="Login">
                     </div>
                 </div>
                 <br/>

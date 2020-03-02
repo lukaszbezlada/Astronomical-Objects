@@ -53,4 +53,9 @@ public class WebController {
         return "registration";
     }
 
+    @RequestMapping("/secret")
+    public String secret() {
+        return "secret";
+    }
+
 }
