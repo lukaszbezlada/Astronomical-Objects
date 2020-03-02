@@ -64,4 +64,10 @@ public class WebController {
         return "account";
     }
 
+    @PostMapping("/account")
+    public String account(Model model) {
+        model.addAttribute("login", "Zalogowano użytkownika");
+        return "secret";
+    }
+
 }
