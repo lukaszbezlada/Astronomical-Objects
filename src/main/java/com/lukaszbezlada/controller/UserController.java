@@ -39,7 +39,7 @@ public class UserController {
             userService.addUserWithDefaultRoleAndStatus(user);
             String registrationSuccess = "Utworzono poprawnie konto";
             model.addAttribute("registrationSuccess", registrationSuccess);
-            return "account";
+            return "login";
         }
         return "registration";
     }

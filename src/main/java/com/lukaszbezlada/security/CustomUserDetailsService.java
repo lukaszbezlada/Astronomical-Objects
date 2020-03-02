@@ -5,6 +5,7 @@ import java.util.Set;
 
 import com.lukaszbezlada.entity.User;
 import com.lukaszbezlada.entity.UserRole;
+import com.lukaszbezlada.entity.UserStatus;
 import com.lukaszbezlada.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;

@@ -28,9 +28,9 @@ public class WebController {
         return "index";
     }
 
-    @RequestMapping("/account")
-    public String account() {
-        return "account";
+    @GetMapping("/login")
+    public String login() {
+        return "login";
     }
 
     @GetMapping("/messierdirectory")
@@ -61,13 +61,13 @@ public class WebController {
     @RequestMapping("/failure")
     public String failure(Model model) {
         model.addAttribute("failure", "Wprowadzono niepoprawne dane użytkownika");
-        return "account";
+        return "login";
     }
 
-    @PostMapping("/account")
+    @PostMapping("/login")
     public String account(Model model) {
         model.addAttribute("login", "Zalogowano użytkownika");
-        return "secret";
+        return "forward:secret";
     }
 
 }
