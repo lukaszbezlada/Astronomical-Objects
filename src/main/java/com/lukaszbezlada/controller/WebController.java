@@ -58,4 +58,10 @@ public class WebController {
         return "secret";
     }
 
+    @RequestMapping("/failure")
+    public String failure(Model model) {
+        model.addAttribute("failure", "Wprowadzono niepoprawne dane użytkownika");
+        return "account";
+    }
+
 }

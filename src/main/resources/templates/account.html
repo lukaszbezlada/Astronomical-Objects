@@ -33,6 +33,7 @@
     <div class="container d-flex h-100 align-items-center">
         <div class="mx-auto text-center">
             <h3 class="text-white mb-4" th:if="${registrationSuccess} != null" th:text="${registrationSuccess}"></h3>
+            <h2 class="alert-danger" th:if="${failure} != null" th:text="${failure}"></h2>
             <h3 class="text-white mb-4">Zaloguj się na swoje konto</h3>
             <div>&nbsp;</div>
             <!--TODO uzupełnić action i wystylizować         -->
