@@ -1,5 +1,6 @@
 package com.lukaszbezlada.controller;
 
+import com.lukaszbezlada.entity.SkyObject;
 import com.lukaszbezlada.entity.User;
 import com.lukaszbezlada.utils.MessierObject;
 import com.lukaszbezlada.utils.MessierService;
@@ -53,9 +54,10 @@ public class WebController {
         return "registration";
     }
 
-    @RequestMapping("/secret")
-    public String secret() {
-        return "secret";
+    @RequestMapping("/account")
+    public String account(Model model) {
+        model.addAttribute("skyObject", new SkyObject());
+        return "account";
     }
 
 
@@ -72,7 +74,7 @@ public class WebController {
     }
 
     @PostMapping("/login")
-    public String account(Model model) {
+    public String login(Model model) {
         model.addAttribute("login", "Zalogowano użytkownika");
         return "forward:secret";
     }

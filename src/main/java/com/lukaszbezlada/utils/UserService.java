@@ -2,7 +2,6 @@ package com.lukaszbezlada.utils;
 
 import com.lukaszbezlada.entity.User;
 import com.lukaszbezlada.entity.UserRole;
-import com.lukaszbezlada.entity.UserStatus;
 import com.lukaszbezlada.repository.UserRepository;
 import com.lukaszbezlada.repository.UserRoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
