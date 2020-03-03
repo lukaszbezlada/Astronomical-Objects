@@ -5,7 +5,6 @@ import java.util.Set;
 
 import com.lukaszbezlada.entity.User;
 import com.lukaszbezlada.entity.UserRole;
-import com.lukaszbezlada.entity.UserStatus;
 import com.lukaszbezlada.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -30,12 +29,10 @@ public class CustomUserDetailsService implements UserDetailsService {
         User user = userRepository.findByLogin(login);
         if (user == null)
             throw new UsernameNotFoundException("User not found");
-        org.springframework.security.core.userdetails.User userDetails =
-                new org.springframework.security.core.userdetails.User(
-                        user.getLogin(),
-                        user.getPassword(),
-                        convertAuthorities(user.getRoles()));
-        return userDetails;
+        return new org.springframework.security.core.userdetails.User(
+                user.getLogin(),
+                user.getPassword(),
+                convertAuthorities(user.getRoles()));
     }
 
     private Set<GrantedAuthority> convertAuthorities(Set<UserRole> userRoles) {
