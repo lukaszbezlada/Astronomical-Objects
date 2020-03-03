@@ -43,9 +43,6 @@ public class User implements Serializable {
     @Pattern(regexp = "^[A-Za-z0-9+_.-]+@(.+)$", message = "{com.lukaszbezlada.entity.User.email.Pattern}")
     private String email;
 
-    @Enumerated(EnumType.STRING)
-    private UserStatus status;
-
     @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     private Set<UserRole> roles = new HashSet<>();
 
@@ -56,13 +53,12 @@ public class User implements Serializable {
         // for JPA
     }
 
-    public User(String login, String password, String firstName, String lastName, String email, UserStatus status, Set<UserRole> roles, List<SkyObject> skyObjectList) {
+    public User(String login, String password, String firstName, String lastName, String email, Set<UserRole> roles, List<SkyObject> skyObjectList) {
         this.login = login;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.status = status;
         this.roles = roles;
         this.skyObjectList = skyObjectList;
     }
@@ -111,14 +107,6 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    public UserStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(UserStatus status) {
-        this.status = status;
-    }
-
     public List<SkyObject> getSkyObjectList() {
         return skyObjectList;
     }
@@ -153,7 +141,6 @@ public class User implements Serializable {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
-                ", status=" + status +
                 ", roles=" + roles +
                 ", skyObjectList=" + skyObjectList +
                 '}';

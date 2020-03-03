@@ -36,7 +36,7 @@ public class UserController {
         }
 
         if (!result.hasErrors() && checkPassword(user)) {
-            userService.addUserWithDefaultRoleAndStatus(user);
+            userService.addUserWithDefaultRole(user);
             String registrationSuccess = "Utworzono poprawnie konto";
             model.addAttribute("registrationSuccess", registrationSuccess);
             return "login";

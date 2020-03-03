@@ -24,10 +24,9 @@ public class UserService {
         this.passwordEncoder = passwordEncoder;
     }
 
-    public void addUserWithDefaultRoleAndStatus(User user) {
+    public void addUserWithDefaultRole(User user) {
         UserRole defaultRole = roleRepository.findByRole(DEFAULT_ROLE);
         user.getRoles().add(defaultRole);
-        user.setStatus(UserStatus.Aktywny);
         String passwordHash = passwordEncoder.encode(user.getPassword());
         user.setPassword(passwordHash);
         userRepository.save(user);
