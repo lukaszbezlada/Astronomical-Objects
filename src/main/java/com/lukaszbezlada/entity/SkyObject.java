@@ -4,7 +4,6 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.time.LocalDateTime;
 
 @Builder
 @Entity
@@ -21,7 +20,7 @@ public class SkyObject implements Serializable {
     private String name;
 
     @Column(nullable = false)
-    private LocalDateTime dateTime;
+    private String date;
 
     @Column(nullable = false)
     private String image;
@@ -34,10 +33,10 @@ public class SkyObject implements Serializable {
         // for JPA
     }
 
-    public SkyObject(Long skyobject_id, String name, LocalDateTime dateTime, String image, User user) {
+    public SkyObject(Long skyobject_id, String name, String date, String image, User user) {
         this.skyobject_id = skyobject_id;
         this.name = name;
-        this.dateTime = dateTime;
+        this.date = date;
         this.image = image;
         this.user = user;
     }
@@ -54,12 +53,12 @@ public class SkyObject implements Serializable {
         this.name = name;
     }
 
-    public LocalDateTime getDateTime() {
-        return dateTime;
+    public String getDate() {
+        return date;
     }
 
-    public void setDateTime(LocalDateTime dateTime) {
-        this.dateTime = dateTime;
+    public void setDate(String dateTime) {
+        this.date = dateTime;
     }
 
     public String getImage() {
@@ -83,7 +82,7 @@ public class SkyObject implements Serializable {
         return "SkyObject{" +
                 "skyobject_id=" + skyobject_id +
                 ", name='" + name + '\'' +
-                ", dateTime=" + dateTime +
+                ", dateTime=" + date +
                 ", user=" + user.getLogin() +
                 '}';
     }

@@ -10,5 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 public interface UserRepository extends JpaRepository<User, Long> {
 
     User findByLogin(String login);
+    User findByFirstName(String firstName);
 
 }

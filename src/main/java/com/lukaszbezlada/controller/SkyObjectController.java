@@ -1,43 +1,24 @@
 package com.lukaszbezlada.controller;
 
 import com.lukaszbezlada.entity.SkyObject;
-import com.lukaszbezlada.repository.SkyObjectRepository;
+import com.lukaszbezlada.utils.SkyObjectService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 
-import java.util.Optional;
-
-@RestController
-@RequestMapping("/api")
+@Controller
 public class SkyObjectController {
 
-    private SkyObjectRepository skyObjectRepository;
+    private final SkyObjectService skyObjectService;
 
     @Autowired
-    public SkyObjectController(SkyObjectRepository skyObjectRepository) {
-        this.skyObjectRepository = skyObjectRepository;
+    public SkyObjectController(SkyObjectService skyObjectService) {
+        this.skyObjectService = skyObjectService;
     }
 
-    @GetMapping("/skyObjects")
-    public Iterable<SkyObject> getSkyObjects() {
-        Iterable<SkyObject> all = skyObjectRepository.findAll();
-        return all;
+    @PostMapping("/addSkyObject")
+    public String addSkyObject(SkyObject skyObject) {
+        skyObjectService.addSkyObject(skyObject);
+        return "account";
     }
-
-    @GetMapping("/getSkyObject/{name}")
-    public Optional<SkyObject> getSkyObjectByName(@PathVariable(value = "name") String name) {
-        return skyObjectRepository.findSkyObjectByNameContains(name);
-    }
-
-    @PostMapping(value = "/skyObject", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void addNewSkyObject(@RequestBody SkyObject skyObject) {
-        skyObjectRepository.save(skyObject);
-    }
-
-    @DeleteMapping("/skyObject/{id}")
-    public void deleteSkyObject(@PathVariable(value = "id") Long id) {
-        skyObjectRepository.deleteById(id);
-    }
-
 }
