@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class MessierServiceImpl implements MessierService {
     private static String path = "/home/lukasz/Pulpit/Projekty/Astronomical-Objects/src/main/resources/messier.csv";
 
-    public ArrayList readFile() {
+    public ArrayList<MessierObject> readFile() {
         Path filePath = Paths.get(path);
         ArrayList<String> read = new ArrayList<>();
         try {
@@ -21,10 +21,10 @@ public class MessierServiceImpl implements MessierService {
             e.printStackTrace();
         }
         read.remove(0);
-        return (ArrayList<MessierObject>) toObjects(read);
+        return toObjects(read);
     }
 
-    public ArrayList toObjects(ArrayList<String> read) {
+    public ArrayList<MessierObject> toObjects(ArrayList<String> read) {
         ArrayList<MessierObject> messierObjects = new ArrayList<>();
 
         for (String line : read) {
