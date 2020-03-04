@@ -5,6 +5,7 @@ import com.lukaszbezlada.utils.SkyObjectService;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -16,6 +17,7 @@ import java.io.*;
 @Controller
 public class SkyObjectController {
 
+    private static final String imagePath = "src/main/resources/static/img/users/";
     private final SkyObjectService skyObjectService;
 
     @Autowired
@@ -24,13 +26,12 @@ public class SkyObjectController {
     }
 
     @PostMapping("/addSkyObject")
-    @ResponseBody
-    public String addSkyObject(@RequestPart(name = "fileupload") MultipartFile file, SkyObject skyObject) { // 2
-        File uploadDirectory = new File("src/main/resources/static/img/users/");
+    public String addSkyObject(@RequestPart(name = "fileupload") MultipartFile file, SkyObject skyObject, Model model) { // 2
+        File uploadDirectory = new File(imagePath);
         uploadDirectory.mkdirs();    // upewniam się, że katalog do którego chcę zapisać plik istnieje, a jeśli nie, to go tworzę
 
         try {
-            File oFile = new File("src/main/resources/static/img/users/" + file.getOriginalFilename());
+            File oFile = new File(imagePath + file.getOriginalFilename());
             OutputStream os = new FileOutputStream(oFile);
             InputStream inputStream = file.getInputStream();
 
@@ -40,11 +41,13 @@ public class SkyObjectController {
             inputStream.close();
         } catch (IOException e) {
             e.printStackTrace();
-            return "Wystąpił błąd podczas przesyłania pliku: " + e.getMessage();
+            model.addAttribute("error", "Wystąpił błąd podczas przesyłania pliku " + e.getMessage());
+            return "account";
         }
-        skyObject.setImage("src/main/resources/static/img/users/" + file.getOriginalFilename());
+        skyObject.setImage(imagePath + file.getOriginalFilename());
         skyObjectService.addSkyObject(skyObject);
-        return "ok!";
+        model.addAttribute("success", "Twój obiekt został zapisany");
+        return "account";
 
     }
 }
