@@ -26,11 +26,11 @@ public class SkyObjectController {
     @PostMapping("/addSkyObject")
     @ResponseBody
     public String addSkyObject(@RequestPart(name = "fileupload") MultipartFile file, SkyObject skyObject) { // 2
-        File uploadDirectory = new File("src/main/resources/static/img/");
+        File uploadDirectory = new File("src/main/resources/static/img/users/");
         uploadDirectory.mkdirs();    // upewniam się, że katalog do którego chcę zapisać plik istnieje, a jeśli nie, to go tworzę
 
         try {
-            File oFile = new File("src/main/resources/static/img/" + file.getOriginalFilename());
+            File oFile = new File("src/main/resources/static/img/users/" + file.getOriginalFilename());
             OutputStream os = new FileOutputStream(oFile);
             InputStream inputStream = file.getInputStream();
 
@@ -42,7 +42,7 @@ public class SkyObjectController {
             e.printStackTrace();
             return "Wystąpił błąd podczas przesyłania pliku: " + e.getMessage();
         }
-        skyObject.setImage("src/main/resources/static/img/" + file.getOriginalFilename());
+        skyObject.setImage("src/main/resources/static/img/users/" + file.getOriginalFilename());
         skyObjectService.addSkyObject(skyObject);
         return "ok!";
 

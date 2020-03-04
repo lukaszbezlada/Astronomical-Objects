@@ -36,7 +36,6 @@
         <div class="mx-auto text-center">
             <h3 class="text-white mb-4">Dodaj swoje własne zdjęcia</h3>
             <div>&nbsp;</div>
-            <!--            <form class="addUser" method="post" th:action="@{/addSkyObject}" th:object="${skyObject}">-->
             <form class="addUser" method="post" enctype="multipart/form-data" action="/addSkyObject"
                   th:action="@{/addSkyObject}" th:object="${skyObject}">
 
@@ -56,7 +55,6 @@
                 <br/>
                 <div class="form">
                     <div>
-                        <!--                        <input type="text" class="form-control" name="image" placeholder="Zdjęcie" th:field="*{image}">-->
                         <input type="file" name="fileupload"/>
                     </div>
                 </div>
