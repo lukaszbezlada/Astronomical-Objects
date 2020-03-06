@@ -4,6 +4,7 @@ import com.lukaszbezlada.entity.SkyObject;
 import com.lukaszbezlada.entity.User;
 import com.lukaszbezlada.utils.MessierObject;
 import com.lukaszbezlada.utils.MessierService;
+import com.lukaszbezlada.utils.SkyObjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,10 +18,12 @@ public class WebController {
 
 
     private MessierService messierService;
+    private SkyObjectService skyObjectService;
 
     @Autowired
-    public WebController(MessierService messierService) {
+    public WebController(MessierService messierService, SkyObjectService skyObjectService) {
         this.messierService = messierService;
+        this.skyObjectService = skyObjectService;
     }
 
     @RequestMapping("/")
@@ -57,9 +60,9 @@ public class WebController {
     @RequestMapping("/account")
     public String account(Model model) {
         model.addAttribute("skyObject", new SkyObject());
+        model.addAttribute("skyObjectUserList", skyObjectService.findUserSkyObjects());
         return "account";
     }
-
 
     @RequestMapping("/admin")
     public String admin() {
