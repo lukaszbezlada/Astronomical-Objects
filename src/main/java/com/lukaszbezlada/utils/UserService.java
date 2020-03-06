@@ -5,6 +5,8 @@ import com.lukaszbezlada.entity.UserRole;
 import com.lukaszbezlada.repository.UserRepository;
 import com.lukaszbezlada.repository.UserRoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -30,4 +32,10 @@ public class UserService {
         user.setPassword(passwordHash);
         userRepository.save(user);
     }
+
+//    public static boolean checkUserAuthentication() {
+//        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        return principal instanceof UserDetails;
+//    }
+
 }
