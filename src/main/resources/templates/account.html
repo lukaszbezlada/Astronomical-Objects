@@ -66,35 +66,34 @@
             </form>
 
         </div>
-        <div class="mx-auto text-center">
-            <table class="table table-striped table-light table-bordered">
-                <thead class=thead-dark>
-                <tr>
-                    <th>Nazwa</th>
-                    <th>Data wykonania</th>
-                    <th>Zdjęcie</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="skyObject: ${skyObjectUserList}" th:object="${skyObject}">
-                    <td th:text="*{name}">Sky object name</td>
-                    <td th:text="*{date}">Date</td>
-                    <td> <a th:href="*{image}" target=_top><p th:text="*{name}"></p></a></td>
-<!--                    <td> <a th:href="*{image}" target=_top><img th:src="*{image}" alt="kliknij, aby powiększyć"></a></td>-->
 
-                </tr>
-                <tr th:remove="all">
-                    <td>Mx</td>
-                    <td>NGCx</td>
-                    <td>xxx</td>
-                    <td>xxx</td>
-                    <td>xxx</td>
-                    <td>xxx</td>
-                    <td>xxx</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
+    </div>
+    <div class="mx-auto text-center">
+        <table class="table table-striped table-light table-bordered">
+            <thead class=thead-dark>
+            <tr>
+                <th>Nazwa</th>
+                <th>Data wykonania</th>
+                <th>Zdjęcie</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="skyObject: ${skyObjectUserList}" th:object="${skyObject}">
+                <td th:text="*{name}">Sky object name</td>
+                <td th:text="*{date}">Date</td>
+                <td><a th:href="*{image}" target=_top><p th:text="*{name}"></p></a></td>
+            </tr>
+            <tr th:remove="all">
+                <td>Mx</td>
+                <td>NGCx</td>
+                <td>xxx</td>
+                <td>xxx</td>
+                <td>xxx</td>
+                <td>xxx</td>
+                <td>xxx</td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 
 </div>

@@ -47,7 +47,7 @@ public class SkyObjectController {
         skyObject.setImage(imageShortPath + file.getOriginalFilename());
         skyObjectService.addSkyObject(skyObject);
         model.addAttribute("success", "Twój obiekt został zapisany");
-        return "account";
+        return "redirect:account";
 
     }
 }
