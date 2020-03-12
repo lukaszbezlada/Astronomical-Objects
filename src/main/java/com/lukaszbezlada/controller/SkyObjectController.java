@@ -8,7 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestPart;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
@@ -18,6 +17,7 @@ import java.io.*;
 public class SkyObjectController {
 
     private static final String imagePath = "src/main/resources/static/img/users/";
+    private static final String imageShortPath = "img/users/";
     private final SkyObjectService skyObjectService;
 
     @Autowired
@@ -44,7 +44,7 @@ public class SkyObjectController {
             model.addAttribute("error", "Wystąpił błąd podczas przesyłania pliku " + e.getMessage());
             return "account";
         }
-        skyObject.setImage(imagePath + file.getOriginalFilename());
+        skyObject.setImage(imageShortPath + file.getOriginalFilename());
         skyObjectService.addSkyObject(skyObject);
         model.addAttribute("success", "Twój obiekt został zapisany");
         return "account";

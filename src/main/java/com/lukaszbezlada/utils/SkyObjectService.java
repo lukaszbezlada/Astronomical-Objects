@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class SkyObjectService {
@@ -30,8 +30,9 @@ public class SkyObjectService {
         skyObjectRepository.save(skyObject);
     }
 
-    public ArrayList<SkyObject> findUserSkyObjects() {
+    public List<SkyObject> findUserSkyObjects() {
         String login = SecurityContextHolder.getContext().getAuthentication().getName();
-        return skyObjectRepository.findSkyObjectsByUserEquals(login);
+        User user = userRepository.findByLogin(login);
+        return skyObjectRepository.findSkyObjectsByUserId(user.getUser_id());
     }
 }

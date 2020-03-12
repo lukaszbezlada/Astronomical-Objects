@@ -66,20 +66,21 @@
             </form>
 
         </div>
-        <div>
+        <div class="mx-auto text-center">
             <table class="table table-striped table-light table-bordered">
                 <thead class=thead-dark>
                 <tr>
                     <th>Nazwa</th>
                     <th>Data wykonania</th>
-                    <!--            <th>Zdjęcie</th>-->
+                    <th>Zdjęcie</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="skyObjectUserList: ${skyObject}" th:object="${skyObject}">
-                    <td th:text="*{name}">Messier Number</td>
-                    <td th:text="*{date}">NGC Number</td>
-                    <!--            <td> <a th:href="*{imgBigPath}" target=_top><img th:src="*{imgPath}" alt="kliknij, aby powiększyć"></a></td>-->
+                <tr th:each="skyObject: ${skyObjectUserList}" th:object="${skyObject}">
+                    <td th:text="*{name}">Sky object name</td>
+                    <td th:text="*{date}">Date</td>
+                    <td> <a th:href="*{image}" target=_top><p th:text="*{name}"></p></a></td>
+<!--                    <td> <a th:href="*{image}" target=_top><img th:src="*{image}" alt="kliknij, aby powiększyć"></a></td>-->
 
                 </tr>
                 <tr th:remove="all">
