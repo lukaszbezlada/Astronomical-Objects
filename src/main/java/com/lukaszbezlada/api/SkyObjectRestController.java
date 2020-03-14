@@ -1,4 +1,4 @@
-package com.lukaszbezlada.controller;
+package com.lukaszbezlada.api;
 
 import com.lukaszbezlada.entity.SkyObject;
 import com.lukaszbezlada.repository.SkyObjectRepository;
