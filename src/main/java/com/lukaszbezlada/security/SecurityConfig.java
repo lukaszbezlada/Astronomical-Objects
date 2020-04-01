@@ -19,12 +19,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/css/**", "/js/**", "/img/**", "/vendor/**", "/scss/**", "/jqery/**","/static/**").permitAll()
+                .antMatchers("/api/**").permitAll()
                 .antMatchers("/").permitAll()
+                .antMatchers( "/static/**", "/css/**", "/img/**", "/js/**","/scss/**","/vendor/**").permitAll()
                 .antMatchers("/registration").permitAll()
                 .antMatchers("/messierdirectory").permitAll()
                 .antMatchers("/addUser").permitAll()
-                .antMatchers("/com/lukaszbezlada/api/**").permitAll()
                 .antMatchers("/admin").access("hasRole('ADMIN')")
                 .anyRequest().authenticated()
                 .and()

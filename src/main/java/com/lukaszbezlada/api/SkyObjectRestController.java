@@ -30,14 +30,24 @@ public class SkyObjectRestController {
         return skyObjectRepository.findSkyObjectByNameContains(name);
     }
 
+//    @GetMapping("/getSkyObjectById/{id}")
+//    public ResponseEntity<Optional<SkyObject>> getSkyObjectById(@PathVariable(value = "id") Long id) {
+//        if (id < 0)
+//            return ResponseEntity.notFound().build();
+//        else {
+//            Optional<SkyObject> skyObject = skyObjectRepository.findSkyObjectBySkyobject_id(id);
+//            return ResponseEntity.ok(skyObject);
+//        }
+//    }
+
     @PostMapping(value = "/skyObject", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void addNewSkyObject(@RequestBody SkyObject skyObject) {
         skyObjectRepository.save(skyObject);
     }
 
-    @DeleteMapping("/skyObject/{id}")
-    public void deleteSkyObject(@PathVariable(value = "id") Long id) {
-        skyObjectRepository.deleteById(id);
+    @DeleteMapping("/skyObject/{name}")
+    public void deleteSkyObject(@PathVariable(value = "name") String name) {
+        skyObjectRepository.deleteSkyObjectByName(name);
     }
 
 }
