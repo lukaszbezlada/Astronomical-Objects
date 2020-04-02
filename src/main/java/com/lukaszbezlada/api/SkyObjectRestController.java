@@ -37,13 +37,10 @@ public class SkyObjectRestController {
     }
 
     @GetMapping("/getSkyObjectById/{id}")
-    public ResponseEntity<Optional<SkyObject>> getSkyObjectById(@PathVariable(value = "id") Long id) {
-        if (id < 0)
-            return ResponseEntity.notFound().build();
-        else {
-            Optional<SkyObject> skyObject = skyObjectRepository.findSkyObjectById(id);
-            return ResponseEntity.ok(skyObject);
-        }
+    public ResponseEntity<SkyObject> getSkyObjectById(@PathVariable(value = "id") Long id) {
+        return skyObjectRepository.findSkyObjectById(id)
+                .map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @PostMapping(value = "/skyObject", consumes = MediaType.APPLICATION_JSON_VALUE)
