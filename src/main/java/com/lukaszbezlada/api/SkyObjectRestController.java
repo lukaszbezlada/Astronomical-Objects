@@ -27,8 +27,13 @@ public class SkyObjectRestController {
     }
 
     @GetMapping(value = "/getSkyObject/{name}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Optional<SkyObject> getSkyObjectByName(@PathVariable(value = "name") String name) {
-        return skyObjectRepository.findSkyObjectByNameContains(name);
+    public ResponseEntity<Optional<SkyObject>> getSkyObjectByName(@PathVariable(value = "name") String name) {
+        Optional<SkyObject> skyObject =  skyObjectRepository.findSkyObjectByNameContains(name);
+        if (!skyObject.isPresent())
+            return ResponseEntity.notFound().build();
+        else {
+            return ResponseEntity.ok(skyObject);
+        }
     }
 
     @GetMapping("/getSkyObjectById/{id}")
