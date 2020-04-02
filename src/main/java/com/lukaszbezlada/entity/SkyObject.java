@@ -14,7 +14,7 @@ public class SkyObject implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long skyobject_id;
+    private Long id;
 
     @Column(nullable = false)
     private String name;
@@ -33,16 +33,16 @@ public class SkyObject implements Serializable {
         // for JPA
     }
 
-    public SkyObject(Long skyobject_id, String name, String date, String image, User user) {
-        this.skyobject_id = skyobject_id;
+    public SkyObject(Long id, String name, String date, String image, User user) {
+        this.id = id;
         this.name = name;
         this.date = date;
         this.image = image;
         this.user = user;
     }
 
-    public Long getSkyobject_id() {
-        return skyobject_id;
+    public Long getId() {
+        return id;
     }
 
     public String getName() {
@@ -80,7 +80,7 @@ public class SkyObject implements Serializable {
     @Override
     public String toString() {
         return "SkyObject{" +
-                "skyobject_id=" + skyobject_id +
+                "skyobject_id=" + id +
                 ", name='" + name + '\'' +
                 ", dateTime=" + date +
                 ", user=" + user.getLogin() +
