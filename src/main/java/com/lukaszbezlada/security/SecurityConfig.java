@@ -29,7 +29,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/admin").access("hasRole('ADMIN')")
                 .anyRequest().authenticated()
                 .and()
-                .formLogin().loginPage("/login").defaultSuccessUrl("/account").permitAll()
+                .formLogin().loginPage("/login").defaultSuccessUrl("/skyobjects").permitAll()
                 .failureUrl("/failure")
                 .and()
                 .logout().logoutUrl("/logmeout").logoutSuccessUrl("/").permitAll();

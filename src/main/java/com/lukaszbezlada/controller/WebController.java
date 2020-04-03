@@ -60,8 +60,13 @@ public class WebController {
     @RequestMapping("/account")
     public String account(Model model) {
         model.addAttribute("skyObject", new SkyObject());
-        model.addAttribute("skyObjectUserList", skyObjectService.findUserSkyObjects());
         return "account";
+    }
+
+    @GetMapping("/skyobjects")
+    public String skyobjects(Model model) {
+        model.addAttribute("skyObjectUserList", skyObjectService.findUserSkyObjects());
+        return "skyobjects";
     }
 
     @RequestMapping("/admin")
