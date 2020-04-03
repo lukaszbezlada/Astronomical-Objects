@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public interface MessierService {
 
-    ArrayList readFile();
+    ArrayList<MessierObject> readFile();
 
-    ArrayList toObjects(ArrayList<String> read);
+    ArrayList<MessierObject> toObjects(ArrayList<String> read);
 }

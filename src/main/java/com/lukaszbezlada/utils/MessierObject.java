@@ -1,6 +1,5 @@
 package com.lukaszbezlada.utils;
 
-import lombok.*;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -11,12 +10,12 @@ public class MessierObject {
     private String NGCNumber;
     private String name;
     private String type;
-    private Long distance;
-    private Long brightness;
+    private String distance;
+    private String brightness;
     private String imgPath;
     private String imgBigPath;
 
-    public MessierObject(int id, String messierNumber, String NGCNumber, String name, String type, Long distance, Long brightness, String imgPath, String imgBigPath) {
+    public MessierObject(int id, String messierNumber, String NGCNumber, String name, String type, String distance, String brightness, String imgPath, String imgBigPath) {
         this.id = id;
         this.messierNumber = messierNumber;
         this.NGCNumber = NGCNumber;
@@ -52,11 +51,11 @@ public class MessierObject {
         this.type = type;
     }
 
-    public void setDistance(Long distance) {
+    public void setDistance(String distance) {
         this.distance = distance;
     }
 
-    public void setBrightness(Long brightness) {
+    public void setBrightness(String brightness) {
         this.brightness = brightness;
     }
 
@@ -84,11 +83,11 @@ public class MessierObject {
         return type;
     }
 
-    public Long getDistance() {
+    public String getDistance() {
         return distance;
     }
 
-    public Long getBrightness() {
+    public String getBrightness() {
         return brightness;
     }
 

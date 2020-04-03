@@ -1,4 +1,5 @@
-Id,Numer Messiera,Numer NGC,Nazwa zwyczajowa,Typ obiektu,Odległość [tys. lat świetlnych],Jasność widoma,Zdjęcie miniaturka,Zdjęcie
-1,M1,NGC 1952,Mgławica Kraba,pozostałość po supernowej,6,9,img/messier/M1m.jpg,img/messier/M1.jpg
-2,M2,NGC 7089,brak,gromada kulista,36,7,img/messier/M2m.jpg,img/messier/M2.jpg
-3,M3,NGC 5272,brak,gromada kulista,31,7,img/messier/M3m.jpg,img/messier/M3.jpg
+Id;Numer Messiera;Numer NGC;Nazwa zwyczajowa;Typ obiektu;Odległość [tys. lat świetlnych];Jasność widoma;Zdjęcie miniaturka;Zdjęcie
+1;M1;NGC 1952;Mgławica Kraba;pozostałość po supernowej;6,3;9;img/messier/M1m.jpg;img/messier/M1.jpg
+2;M2;NGC 7089;brak;gromada kulista;7;7;img/messier/M2m.jpg;img/messier/M2.jpg
+3;M3;NGC 5272;brak;gromada kulista;8;7;img/messier/M3m.jpg;img/messier/M3.jpg
+4;M4;NGC 6121;brak;gromada kulista;9;7;dddd;ddd
