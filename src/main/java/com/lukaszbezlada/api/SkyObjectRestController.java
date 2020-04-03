@@ -22,8 +22,7 @@ public class SkyObjectRestController {
 
     @GetMapping(value = "/skyObjects", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<SkyObject> getSkyObjects() {
-        Iterable<SkyObject> all = skyObjectRepository.findAll();
-        return all;
+        return skyObjectRepository.findAll();
     }
 
     @GetMapping(value = "/getSkyObject/{name}", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -38,7 +37,7 @@ public class SkyObjectRestController {
 
     @GetMapping("/getSkyObjectById/{id}")
     public ResponseEntity<SkyObject> getSkyObjectById(@PathVariable(value = "id") Long id) {
-        return skyObjectRepository.findSkyObjectById(id)
+        return skyObjectRepository.findById(id)
                 .map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }

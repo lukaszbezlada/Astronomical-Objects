@@ -16,5 +16,4 @@ public interface SkyObjectRepository extends JpaRepository<SkyObject, Long> {
     Optional<SkyObject> findSkyObjectByNameContains(String contain);
     List<SkyObject> findSkyObjectsByUserId(Long id);
     void deleteSkyObjectByName(String name);
-    Optional<SkyObject> findSkyObjectById(Long id);
 }
