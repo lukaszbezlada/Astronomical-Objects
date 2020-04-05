@@ -7,6 +7,7 @@ import javax.validation.constraints.Pattern;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -144,5 +145,26 @@ public class User implements Serializable {
                 ", roles=" + roles +
                 ", skyObjectList=" + skyObjectList +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return Objects.equals(id, user.id) &&
+                Objects.equals(login, user.login) &&
+                Objects.equals(password, user.password) &&
+                Objects.equals(password2, user.password2) &&
+                Objects.equals(firstName, user.firstName) &&
+                Objects.equals(lastName, user.lastName) &&
+                Objects.equals(email, user.email) &&
+                Objects.equals(roles, user.roles) &&
+                Objects.equals(skyObjectList, user.skyObjectList);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, login, password, password2, firstName, lastName, email, roles, skyObjectList);
     }
 }

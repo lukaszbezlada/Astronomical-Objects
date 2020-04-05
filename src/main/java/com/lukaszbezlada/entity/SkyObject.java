@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Objects;
 
 @Builder
 @Entity
@@ -85,5 +86,22 @@ public class SkyObject implements Serializable {
                 ", dateTime=" + date +
                 ", user=" + user.getLogin() +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SkyObject skyObject = (SkyObject) o;
+        return Objects.equals(id, skyObject.id) &&
+                Objects.equals(name, skyObject.name) &&
+                Objects.equals(date, skyObject.date) &&
+                Objects.equals(image, skyObject.image) &&
+                Objects.equals(user, skyObject.user);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, date, image, user);
     }
 }
