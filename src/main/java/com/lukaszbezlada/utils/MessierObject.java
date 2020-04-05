@@ -2,6 +2,8 @@ package com.lukaszbezlada.utils;
 
 import org.springframework.stereotype.Component;
 
+import java.util.Objects;
+
 @Component
 public class MessierObject {
 
@@ -116,5 +118,26 @@ public class MessierObject {
                 ", imgPath='" + imgPath + '\'' +
                 ", imgBigPath='" + imgBigPath + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MessierObject that = (MessierObject) o;
+        return id == that.id &&
+                Objects.equals(messierNumber, that.messierNumber) &&
+                Objects.equals(NGCNumber, that.NGCNumber) &&
+                Objects.equals(name, that.name) &&
+                Objects.equals(type, that.type) &&
+                Objects.equals(distance, that.distance) &&
+                Objects.equals(brightness, that.brightness) &&
+                Objects.equals(imgPath, that.imgPath) &&
+                Objects.equals(imgBigPath, that.imgBigPath);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, messierNumber, NGCNumber, name, type, distance, brightness, imgPath, imgBigPath);
     }
 }
