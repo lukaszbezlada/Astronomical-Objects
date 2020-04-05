@@ -7,13 +7,10 @@ import com.lukaszbezlada.repository.UserRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -22,7 +19,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @DataJpaTest
 public class SkyObjectServiceTests {
 
-    @MockBean
+    @Autowired
     SkyObjectRepository skyObjectRepository;
 
     @Autowired
@@ -35,19 +32,17 @@ public class SkyObjectServiceTests {
         User user1 = new User("userLogin", "pass", "user", "user", "ggg@oo.pl", null, null);
         userRepository.save(user1);
         skyObject = new SkyObject(1L, "firstObject", "22.10.2019", "path", user1);
-        List<SkyObject> skyObjectList = new ArrayList<>();
-        skyObjectList.add(skyObject);
-        Mockito.when(skyObjectRepository.findSkyObjectsByUserId(user1.getUser_id())).thenReturn(skyObjectList);
+        skyObjectRepository.save(skyObject);
     }
 
     @Test
     public void whenAddSkyObject_thenReturnSkyObject() {
         //when
-        skyObjectRepository.save(skyObject);
         List<SkyObject> found = skyObjectRepository.findAll();
+        int liczba = found.size();
 
         //then
-        assertThat(found.get(0)).isEqualTo(skyObject);
+        assertThat(found.get(0).getName()).isEqualTo(skyObject.getName());
     }
 
     @Test
@@ -58,6 +53,6 @@ public class SkyObjectServiceTests {
 
         //then
         assertThat(found.get(0).getUser().getUser_id()).isEqualTo(userId);
-
+        assertThat(found.get(0)).isEqualTo(skyObject);
     }
 }
