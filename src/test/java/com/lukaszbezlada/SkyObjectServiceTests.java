@@ -26,10 +26,11 @@ public class SkyObjectServiceTests {
     UserRepository userRepository;
 
     private SkyObject skyObject;
+    private User user1;
 
     @Before
     public void setUp() {
-        User user1 = new User("userLogin", "pass", "user", "user", "ggg@oo.pl", null, null);
+        user1 = new User("userLogin", "pass", "user", "user", "ggg@oo.pl", null, null);
         userRepository.save(user1);
         skyObject = new SkyObject(1L, "firstObject", "22.10.2019", "path", user1);
         skyObjectRepository.save(skyObject);
@@ -39,7 +40,6 @@ public class SkyObjectServiceTests {
     public void whenAddSkyObject_thenReturnSkyObject() {
         //when
         List<SkyObject> found = skyObjectRepository.findAll();
-        int liczba = found.size();
 
         //then
         assertThat(found.get(0).getName()).isEqualTo(skyObject.getName());
