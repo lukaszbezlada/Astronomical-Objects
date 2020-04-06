@@ -51,7 +51,7 @@ public class WebController {
     }
 
     @PostMapping("/registration")
-    public String registrationWithEmail(@RequestParam(name = "e_mail") String e_mail, Model model) {
+    public String registrationWithEmail(@RequestParam(name = "e_mail", required = false) String e_mail , Model model) {
         model.addAttribute("user", new User());
         model.addAttribute("e_mail", e_mail);
         return "registration";
