@@ -3,6 +3,7 @@ package com.lukaszbezlada;
 import com.lukaszbezlada.entity.User;
 import com.lukaszbezlada.utils.MessierObject;
 import com.lukaszbezlada.utils.MessierService;
+import com.lukaszbezlada.utils.SkyObjectService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import java.util.ArrayList;
 
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -29,6 +31,9 @@ public class WebControllerTest {
 
     @MockBean
     MessierService messierService;
+
+    @MockBean
+    SkyObjectService skyObjectService;
 
     @Test
     public void shouldReturnIndexPage() throws Exception {
@@ -65,42 +70,68 @@ public class WebControllerTest {
                 .andExpect(view().name("messierdirectory"));
 
     }
-}
 
-//
-//    @GetMapping("/registration")
-//    public String registration(Model model) {
-//        model.addAttribute("user", new User());
-//        return "registration";
+    @Test
+    public void shouldReturnRegistrationPage() throws Exception {
+        mockMvc
+                .perform(get("/registration"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(model().attributeExists("user"))
+                .andExpect(model().attribute("user", new User()))
+                .andExpect(view().name("registration"));
+    }
+//TODO testy dla zalogowanych i metody post
+    @Test
+    public void shouldReturnRegistrationPagePost() throws Exception {
+        String name = "e_mail";
+        mockMvc
+                .perform(post("/registration"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(content().contentType("application/json;charset=UTF-8"))
+                .andExpect(model().attributeExists("user"))
+                .andExpect(model().attributeExists("e_mail"))
+                .andExpect(model().attribute("user", new User()))
+                .andExpect(model().attribute("e_mail", name))
+                .andExpect(view().name("registration"));
+    }
+
+//    @Test
+//    public void shouldReturnAccountPage() throws Exception {
+//        mockMvc
+//                .perform(get("/account"))
+//                .andDo(print())
+//                .andExpect(status().isOk())
+//                .andExpect(model().attributeExists("skyObject"))
+//                .andExpect(model().attribute("skyObject", new SkyObject()))
+//                .andExpect(view().name("account"));
 //    }
-//
-//    @PostMapping("/registration")
-//    public String registrationWithEmail(@RequestParam(name = "e_mail") String e_mail, Model model) {
-//        model.addAttribute("user", new User());
-//        model.addAttribute("e_mail", e_mail);
-//        return "registration";
+
+//    @Test
+//    public void shouldReturnSkyObjectsPage() throws Exception {
+//        List<SkyObject> emptylist = new ArrayList<>();
+//        when(skyObjectService.findUserSkyObjects()).thenReturn(emptylist);
+//        mockMvc
+//                .perform(get("/skyObjects"))
+//                .andDo(print())
+//                .andExpect(status().isOk())
+//                .andExpect(model().attributeExists("skyObjectUserList"))
+//                .andExpect(model().attribute("skyObjectUserList", emptylist))
+//                .andExpect(view().name("skyObjects"));
 //    }
-//
-//    @RequestMapping("/account")
-//    public String account(Model model) {
-//        model.addAttribute("skyObject", new SkyObject());
-//        return "account";
-//    }
-//
-//    @GetMapping("/skyobjects")
-//    public String skyobjects(Model model) {
-//        model.addAttribute("skyObjectUserList", skyObjectService.findUserSkyObjects());
-//        return "skyobjects";
-//    }
-//
-//    @RequestMapping("/admin")
-//    public String admin() {
-//        return "admin";
-//    }
-//
-//
-//    @RequestMapping("/failure")
-//    public String failure(Model model) {
-//        model.addAttribute("failure", "Wprowadzono niepoprawne dane użytkownika");
-//        return "login";
-//    }
+
+    @Test
+    public void shouldReturnLoginPageAfterFailure() throws Exception {
+        String failure = "Wprowadzono niepoprawne dane użytkownika";
+        mockMvc
+                .perform(get("/failure"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(model().attributeExists("failure"))
+                .andExpect(model().attribute("failure", failure))
+                .andExpect(view().name("login"));
+    }
+
+
+}
