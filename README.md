@@ -21,8 +21,7 @@ Website content and information were created from wikipedia.org sources.
 
 
 ## Screenshots
-Added soon
-![Example screenshot](./img/screenshot.png)
+![Main page](src/main/resources/img/readme/main.png)
 
 ## Technologies
 * Spring Framework
