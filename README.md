@@ -23,7 +23,6 @@ Website content and information were created from wikipedia.org sources.
 ## Screenshots
 ![Main page](./src/main/resources/static/img/readme/main.png)
 ![Main page2](./src/main/resources/static/img/readme/main2.png)
-![Registration](./src/main/resources/static/img/readme/registration.png)
 ![AddSkyObject](./src/main/resources/static/img/readme/addobject.png)
 
 ## Technologies
