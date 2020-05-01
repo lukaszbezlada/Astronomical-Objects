@@ -5,6 +5,7 @@
 * [General info](#general-info)
 * [Screenshots](#screenshots)
 * [Technologies](#technologies)
+* [Utilities](#utilities)
 * [Setup](#setup)
 * [Features](#features)
 * [Status](#status)
@@ -35,6 +36,13 @@ Added soon
 * Thymeleaf - version 2.1.6.RELEASE
 * Spring Boot Test - version 2.1.6.RELEASE
 
+## Utilities
+* IntelliJ IDEA Ultimate
+* Maven
+* Docker
+* DataGrip
+* Postman
+
 ## Setup
 Added soon
 
@@ -53,8 +61,8 @@ To-do list:
 Project is: _in progress_.
 
 ## Inspiration
-This project was created for learning Java and Spring technologies. The subject was chosen due to the author's interests :) Materials from wikipedia.org were used
+This project was created for learning Java and Spring technologies. The subject was chosen due to the author's interests :) Materials from wikipedia.org were used.
 
 ## Contact
 - Created by [Łukasz Bezłada](https://www.linkedin.com/in/lukaszbezlada/)
-- Email [@Łukasz Bezłada](lukaszbezlada@interia.pl) - feel free to contact me!
+- Email [Łukasz Bezłada](mailto:lukaszbezlada@interia.pl) - feel free to contact me!
