@@ -1,9 +1,9 @@
 package com.lukaszbezlada;
 
 import com.lukaszbezlada.entity.User;
-import com.lukaszbezlada.utils.MessierObject;
-import com.lukaszbezlada.utils.MessierService;
-import com.lukaszbezlada.utils.SkyObjectService;
+import com.lukaszbezlada.entity.MessierObject;
+import com.lukaszbezlada.repository.MessierService;
+import com.lukaszbezlada.service.SkyObjectService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

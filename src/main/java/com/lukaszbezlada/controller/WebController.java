@@ -2,10 +2,10 @@ package com.lukaszbezlada.controller;
 
 import com.lukaszbezlada.entity.SkyObject;
 import com.lukaszbezlada.entity.User;
-import com.lukaszbezlada.utils.MessierObject;
-import com.lukaszbezlada.utils.MessierService;
-import com.lukaszbezlada.utils.SkyObjectService;
-import com.lukaszbezlada.utils.UserService;
+import com.lukaszbezlada.entity.MessierObject;
+import com.lukaszbezlada.repository.MessierService;
+import com.lukaszbezlada.service.SkyObjectService;
+import com.lukaszbezlada.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

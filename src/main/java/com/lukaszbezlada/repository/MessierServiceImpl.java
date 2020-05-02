@@ -1,6 +1,8 @@
-package com.lukaszbezlada.utils;
+package com.lukaszbezlada.repository;
 
-import org.springframework.stereotype.Component;
+import com.lukaszbezlada.entity.MessierObject;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Repository;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -8,7 +10,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
-@Component
+@Repository
+@Qualifier("OneMessierServiceImplementation")
 public class MessierServiceImpl implements MessierService {
     private static final String path = "/home/lukasz/Pulpit/Projekty/Astronomical-Objects/src/main/resources/messier.csv";
 

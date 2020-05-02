@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 
 
 @RunWith(SpringRunner.class)
@@ -68,7 +68,7 @@ public class SkyObjectRepositoryTests {
 
         //then
         List<SkyObject> skyObjectList = skyObjectRepository.findAll();
-        assertTrue(skyObjectList.size() == 0);
+        assertEquals(0, skyObjectList.size());
     }
 
 }
