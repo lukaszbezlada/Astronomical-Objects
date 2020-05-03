@@ -4,41 +4,41 @@ import com.lukaszbezlada.entity.MessierObject;
 import com.lukaszbezlada.repository.MessierRepository;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.rules.TemporaryFolder;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.io.File;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
-@DataJpaTest
+@SpringBootTest
 public class MessierRepositoryTest {
 
     @Autowired
-    private @Qualifier("OneMessierServiceImplementation")
-    MessierRepository messierRepository;
+    private MessierRepository messierRepository;
 
     private final String line1 = "first line";
     private final String line2 = "1;M1;NGC 1952;Mgławica Kraba;pozostałość po supernowej;6,3;9;img/messier/M1m.jpg;img/messier/M1.jpg";
     private final ArrayList<String> line2List = new ArrayList<>();
 
     @Before
-    public void createFile() throws Exception {
-        //given
-        TemporaryFolder folder = new TemporaryFolder();
-        final File file = folder.newFile("myfile.txt");
-        PrintWriter pw = new PrintWriter(file);
-        pw.println(line1);
-        pw.println(line2);
-        pw.close();
+    public void createList() {
+        line2List.add(line2);
     }
+
+//    @Before
+//    public void createFile() throws Exception {
+//        //given
+//        TemporaryFolder folder = new TemporaryFolder();
+//        final File file = folder.newFile("myfile.txt");
+//        PrintWriter pw = new PrintWriter(file);
+//        pw.println(line1);
+//        pw.println(line2);
+//        pw.close();
+//    }
 
     @Test
     public void whenToObjectsThenReturnMessierObjects() {
@@ -52,7 +52,7 @@ public class MessierRepositoryTest {
         messierObject.setType("pozostałość po supernowej");
         messierObject.setDistance("6,3");
         messierObject.setBrightness("9");
-        messierObject.setImgPath("img/messier/M1m.jp");
+        messierObject.setImgPath("img/messier/M1m.jpg");
         messierObject.setImgBigPath("img/messier/M1.jpg");
 
         //then

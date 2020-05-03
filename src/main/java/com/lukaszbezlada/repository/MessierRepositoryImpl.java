@@ -1,7 +1,6 @@
 package com.lukaszbezlada.repository;
 
 import com.lukaszbezlada.entity.MessierObject;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import java.io.IOException;
@@ -11,7 +10,6 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 
 @Repository
-@Qualifier("OneMessierServiceImplementation")
 public class MessierRepositoryImpl implements MessierRepository {
     private static final String path = "/home/lukasz/Pulpit/Projekty/Astronomical-Objects/src/main/resources/messier.csv";
 
