@@ -2,10 +2,10 @@ package com.lukaszbezlada.controller;
 
 import com.lukaszbezlada.entity.SkyObject;
 import com.lukaszbezlada.entity.User;
-import com.lukaszbezlada.utils.MessierObject;
-import com.lukaszbezlada.utils.MessierService;
-import com.lukaszbezlada.utils.SkyObjectService;
-import com.lukaszbezlada.utils.UserService;
+import com.lukaszbezlada.entity.MessierObject;
+import com.lukaszbezlada.repository.MessierRepository;
+import com.lukaszbezlada.service.SkyObjectService;
+import com.lukaszbezlada.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,13 +18,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class WebController {
 
 
-    private MessierService messierService;
+    private MessierRepository messierRepository;
     private SkyObjectService skyObjectService;
     private UserService userService;
 
     @Autowired
-    public WebController(MessierService messierService, SkyObjectService skyObjectService, UserService userService) {
-        this.messierService = messierService;
+    public WebController(MessierRepository messierRepository, SkyObjectService skyObjectService, UserService userService) {
+        this.messierRepository = messierRepository;
         this.skyObjectService = skyObjectService;
         this.userService = userService;
     }
@@ -43,7 +43,7 @@ public class WebController {
     @GetMapping("/messierdirectory")
     public String messier(Model model) {
         model.addAttribute("messierObjectAttribute", new MessierObject());
-        model.addAttribute("messierListAttribute", messierService.readFile());
+        model.addAttribute("messierListAttribute", messierRepository.readFile());
         return "messierdirectory";
     }
 

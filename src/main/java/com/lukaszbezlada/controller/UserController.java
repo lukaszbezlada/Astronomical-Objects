@@ -1,7 +1,7 @@
 package com.lukaszbezlada.controller;
 
 import com.lukaszbezlada.entity.User;
-import com.lukaszbezlada.utils.UserService;
+import com.lukaszbezlada.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

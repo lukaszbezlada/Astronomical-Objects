@@ -1,9 +1,9 @@
 package com.lukaszbezlada;
 
 import com.lukaszbezlada.entity.User;
-import com.lukaszbezlada.utils.MessierObject;
-import com.lukaszbezlada.utils.MessierService;
-import com.lukaszbezlada.utils.SkyObjectService;
+import com.lukaszbezlada.entity.MessierObject;
+import com.lukaszbezlada.repository.MessierRepository;
+import com.lukaszbezlada.service.SkyObjectService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +30,7 @@ public class WebControllerTest {
     private MockMvc mockMvc;
 
     @MockBean
-    MessierService messierService;
+    MessierRepository messierRepository;
 
     @MockBean
     SkyObjectService skyObjectService;
@@ -58,7 +58,7 @@ public class WebControllerTest {
     @Test
     public void shouldReturnMessierPage() throws Exception {
         ArrayList<MessierObject> emptyList = new ArrayList();
-        when(messierService.readFile()).thenReturn(emptyList);
+        when(messierRepository.readFile()).thenReturn(emptyList);
         mockMvc
                 .perform(get("/messierdirectory"))
                 .andDo(print())
@@ -66,7 +66,7 @@ public class WebControllerTest {
                 .andExpect(model().attributeExists("messierObjectAttribute"))
                 .andExpect(model().attributeExists("messierListAttribute"))
                 .andExpect(model().attribute("messierObjectAttribute", new MessierObject()))
-                .andExpect(model().attribute("messierListAttribute", messierService.readFile()))
+                .andExpect(model().attribute("messierListAttribute", messierRepository.readFile()))
                 .andExpect(view().name("messierdirectory"));
 
     }

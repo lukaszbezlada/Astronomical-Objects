@@ -1,4 +1,4 @@
-package com.lukaszbezlada.utils;
+package com.lukaszbezlada.service;
 
 import com.lukaszbezlada.entity.SkyObject;
 import com.lukaszbezlada.entity.User;

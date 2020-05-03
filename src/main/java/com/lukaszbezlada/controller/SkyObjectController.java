@@ -1,7 +1,7 @@
 package com.lukaszbezlada.controller;
 
 import com.lukaszbezlada.entity.SkyObject;
-import com.lukaszbezlada.utils.SkyObjectService;
+import com.lukaszbezlada.service.SkyObjectService;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

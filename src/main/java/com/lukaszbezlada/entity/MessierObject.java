@@ -1,4 +1,4 @@
-package com.lukaszbezlada.utils;
+package com.lukaszbezlada.entity;
 
 import org.springframework.stereotype.Component;
 
