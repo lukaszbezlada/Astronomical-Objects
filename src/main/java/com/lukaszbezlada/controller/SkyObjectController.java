@@ -26,16 +26,16 @@ public class SkyObjectController {
     }
 
     @PostMapping("/addSkyObject")
-    public String addSkyObject(@RequestPart(name = "fileupload") MultipartFile file, SkyObject skyObject, Model model) { // 2
+    public String addSkyObject(@RequestPart(name = "fileupload") MultipartFile file, SkyObject skyObject, Model model) {
         File uploadDirectory = new File(imagePath);
-        uploadDirectory.mkdirs();    // upewniam się, że katalog do którego chcę zapisać plik istnieje, a jeśli nie, to go tworzę
+        uploadDirectory.mkdirs(); // upewniam się, że katalog do którego chcę zapisać plik istnieje, a jeśli nie, to go tworzę
 
         try {
             File oFile = new File(imagePath + file.getOriginalFilename());
             OutputStream os = new FileOutputStream(oFile);
             InputStream inputStream = file.getInputStream();
 
-            IOUtils.copy(inputStream, os); // 4
+            IOUtils.copy(inputStream, os);
 
             os.close();
             inputStream.close();

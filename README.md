@@ -28,7 +28,7 @@ Website content and information were created from wikipedia.org sources.
 ## Technologies
 * Spring Framework
 * Spring Boot - version 2.1.6.RELEASE
-* Spring Data - version 2.2.2.RELEASE
+* Spring Data JPA - version 2.2.2.RELEASE
 * MySQL
 * Spring Validator (with Bean Validation) - version 2.1.6.RELEASE
 * Spring Security - version 2.1.6.RELEASE
