@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 @Repository
 @Qualifier("OneMessierServiceImplementation")
-public class MessierServiceImpl implements MessierService {
+public class MessierRepositoryImpl implements MessierRepository {
     private static final String path = "/home/lukasz/Pulpit/Projekty/Astronomical-Objects/src/main/resources/messier.csv";
 
     public ArrayList<MessierObject> readFile() {

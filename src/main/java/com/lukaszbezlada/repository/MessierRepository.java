@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 
 @Repository
-public interface MessierService {
+public interface MessierRepository {
 
     ArrayList<MessierObject> readFile();
 

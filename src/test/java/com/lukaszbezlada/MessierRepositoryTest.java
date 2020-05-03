@@ -1,7 +1,7 @@
 package com.lukaszbezlada;
 
 import com.lukaszbezlada.entity.MessierObject;
-import com.lukaszbezlada.repository.MessierService;
+import com.lukaszbezlada.repository.MessierRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
@@ -19,10 +19,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-public class MessierServiceImplTest {
+public class MessierRepositoryTest {
 
     @Autowired
-    private @Qualifier("OneMessierServiceImplementation") MessierService messierService;
+    private @Qualifier("OneMessierServiceImplementation")
+    MessierRepository messierRepository;
 
     private final String line1 = "first line";
     private final String line2 = "1;M1;NGC 1952;Mgławica Kraba;pozostałość po supernowej;6,3;9;img/messier/M1m.jpg;img/messier/M1.jpg";
@@ -42,7 +43,7 @@ public class MessierServiceImplTest {
     @Test
     public void whenToObjectsThenReturnMessierObjects() {
         //when
-        ArrayList<MessierObject> messierObjects = messierService.toObjects(line2List);
+        ArrayList<MessierObject> messierObjects = messierRepository.toObjects(line2List);
         MessierObject messierObject = new MessierObject();
         messierObject.setId(Integer.parseInt("1"));
         messierObject.setMessierNumber("M1");
