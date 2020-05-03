@@ -11,9 +11,8 @@ import java.util.ArrayList;
 
 @Repository
 public class MessierRepositoryImpl implements MessierRepository {
-    private static final String path = "/home/lukasz/Pulpit/Projekty/Astronomical-Objects/src/main/resources/messier.csv";
 
-    public ArrayList<MessierObject> readFile() {
+    public ArrayList<MessierObject> readFile(String path) {
         Path filePath = Paths.get(path);
         ArrayList<String> read = new ArrayList<>();
         try {

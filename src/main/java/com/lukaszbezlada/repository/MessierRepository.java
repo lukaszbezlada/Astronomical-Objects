@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public interface MessierRepository {
 
-    ArrayList<MessierObject> readFile();
+    ArrayList<MessierObject> readFile(String path);
 
     ArrayList<MessierObject> toObjects(ArrayList<String> read);
 }

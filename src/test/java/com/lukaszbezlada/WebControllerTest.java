@@ -58,7 +58,8 @@ public class WebControllerTest {
     @Test
     public void shouldReturnMessierPage() throws Exception {
         ArrayList<MessierObject> emptyList = new ArrayList();
-        when(messierRepository.readFile()).thenReturn(emptyList);
+        String path = "";
+        when(messierRepository.readFile(path)).thenReturn(emptyList);
         mockMvc
                 .perform(get("/messierdirectory"))
                 .andDo(print())
@@ -66,7 +67,7 @@ public class WebControllerTest {
                 .andExpect(model().attributeExists("messierObjectAttribute"))
                 .andExpect(model().attributeExists("messierListAttribute"))
                 .andExpect(model().attribute("messierObjectAttribute", new MessierObject()))
-                .andExpect(model().attribute("messierListAttribute", messierRepository.readFile()))
+                .andExpect(model().attribute("messierListAttribute", messierRepository.readFile(path)))
                 .andExpect(view().name("messierdirectory"));
 
     }
