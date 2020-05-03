@@ -30,12 +30,12 @@ Website content and information were created from wikipedia.org sources.
 * Spring Boot - version 2.1.6.RELEASE
 * Spring Data - version 2.2.2.RELEASE
 * MySQL
-* Spring Validator with Bean Validation - version 2.1.6.RELEASE
+* Spring Validator (with Bean Validation) - version 2.1.6.RELEASE
 * Spring Security - version 2.1.6.RELEASE
 * REST
 * Spring Data Rest - version 3.1.9.RELEASE
 * Thymeleaf - version 2.1.6.RELEASE
-* Spring Boot Test - version 2.1.6.RELEASE
+* Spring Boot Test (with JUnit nad Mockito) - version 2.1.6.RELEASE
 
 ## Utilities
 * IntelliJ IDEA Ultimate
