@@ -29,13 +29,13 @@ Website content and information were created from wikipedia.org sources.
 * Spring Framework
 * Spring Boot - version 2.1.6.RELEASE
 * Spring Data JPA - version 2.2.2.RELEASE
-* MySQL
+* MySQL (Docker container)
 * Spring Validator (with Bean Validation) - version 2.1.6.RELEASE
 * Spring Security - version 2.1.6.RELEASE
 * REST
 * Spring Data Rest - version 3.1.9.RELEASE
 * Thymeleaf - version 2.1.6.RELEASE
-* Spring Boot Test (with JUnit nad Mockito) - version 2.1.6.RELEASE
+* Spring Boot Test (with JUnit, Mockito and AsserJ libraries) - version 2.1.6.RELEASE
 
 ## Utilities
 * IntelliJ IDEA Ultimate
