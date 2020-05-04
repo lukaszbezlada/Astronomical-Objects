@@ -20,22 +20,22 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest
 public class MessierRepositoryTest {
 
-    @Autowired
-    private MessierRepository messierRepository;
-
-    private final String line1 = "first line";
-    private final String line2 = "1;M1;NGC 1952;Mgławica Kraba;pozostałość po supernowej;6,3;9;img/messier/M1m.jpg;img/messier/M1.jpg";
     private final ArrayList<String> line2List = new ArrayList<>();
     private MessierObject messierObject;
     private String filePath;
     private File file;
 
+    @Autowired
+    private MessierRepository messierRepository;
+
     @Before
     public void createFileAndObject() throws Exception {
         //given
+        final String line1 = "first line";
+        final String line2 = "1;M1;NGC 1952;Mgławica Kraba;pozostałość po supernowej;6,3;9;img/messier/M1m.jpg;img/messier/M1.jpg";
         line2List.add(line2); // only for first test
 
-        file = File.createTempFile("testFile.txt", null);
+        file = File.createTempFile("testFile", ".csv");
         filePath = file.getPath();
         PrintWriter pw = new PrintWriter(file);
         pw.println(line1);
