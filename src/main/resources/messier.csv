@@ -1,5 +1,41 @@
 Id;Numer Messiera;Numer NGC;Nazwa zwyczajowa;Typ obiektu;Odległość [tys. lat świetlnych];Jasność widoma;Zdjęcie miniaturka;Zdjęcie
 1;M1;NGC 1952;Mgławica Kraba;pozostałość po supernowej;6.3;9;img/messier/M1m.jpg;img/messier/M1.jpg
-2;M2;NGC 7089;;gromada kulista;36;7;img/messier/M2m.jpg;img/messier/M2.jpg
+2;M2;NGC 7089;;gromada kulista;36;7.5;img/messier/M2m.jpg;img/messier/M2.jpg
 3;M3;NGC 5272;;gromada kulista;31;7;img/messier/M3m.jpg;img/messier/M3.jpg
-4;M4;NGC 6121;;gromada kulista;7;7;dddd;ddd
+4;M4;NGC 6121;;gromada kulista;7;7.5;dddd;ddd
+5;M5;NGC 5904 ;;gromada kulista ;23;7;dddd;ddd
+6;M6;NGC 6405;Gromada Motyl ;gromada otwarta ;2;4.5;dddd;ddd
+7;M7;NGC 6475 ;Gromada Ptolemeusza ;gromada otwarta ;1;3.5;dddd;ddd
+8;M8;NGC 6523 ;Mgławica Laguna ;mgławica dyfuzyjna/gromada gwiazd ;6.5;5;dddd;ddd
+9;M9;NGC 6333 ;;gromada kulista ;26;9;dddd;ddd
+10;M10;NGC 6254 ;;gromada kulista ;13;7.5;dddd;ddd
+11;M11;NGC 6705 ;Gromada Dzika Kaczka ;gromada otwarta ;6;7;dddd;ddd
+12;M12;NGC 6218 ;;gromada kulista ;18;8;dddd;ddd
+13;M13;NGC 6205 ;Gromada Herkulesa ;gromada kulista ;22;5.8;dddd;ddd
+14;M14;NGC 6402 ;;gromada kulista ;27;9.5;dddd;ddd
+15;M15;NGC 7078 ;;gromada kulista ;33;7.5;dddd;ddd
+16;M16;NGC 6611 ;Mgławica Orzeł ;mgławica emisyjna ;7;6.5;dddd;ddd
+17;M17;NGC 6618 ;Mgławica Omega ;mgławica emisyjna/gromada gwiazd ;5;7;dddd;ddd
+18;M18;NGC 6613 ;;gromada otwarta ;6;8;dddd;ddd
+19;M19;NGC 6273 ;;gromada kulista ;27;8.5;dddd;ddd
+20;M20;NGC 6514 ;Mgławica Trójlistna Koniczyna ;grupa gwiazd / mgławica emisyjna ;2.2;5;dddd;ddd
+21;M21;NGC 6531 ;;gromada otwarta ;3;7;dddd;ddd
+22;M22;NGC 6656 ;Gromada Strzelca ;gromada kulista ;10;6.5;dddd;ddd
+23;M23;NGC 6494 ;;gromada otwarta ;4.5;6;dddd;ddd
+24;M24;;;chmura gwiezdna ;10;11.5;dddd;ddd
+25;M25;IC 4725 ;;gromada otwarta ;2;4.9;dddd;ddd
+26;M26;NGC 6694 ;;gromada otwarta ;5;9.5;dddd;ddd
+27;M27;NGC 6853 ;Mgławica Hantle ;mgławica planetarna ;1.25;7.5;dddd;ddd
+28;M28;NGC 6626 ;;gromada kulista ;18;8.5;dddd;ddd
+29;M29;NGC 6913 ;;gromada otwarta ;7.2;9;dddd;ddd
+30;M30;NGC 7099 ;;gromada kulista ;25;8.5;dddd;ddd
+31;M31;NGC 224 ;Galaktyka Andromedy, Wielka Mgławica Andromedy ;galaktyka spiralna ;2200;4.5;dddd;ddd
+32;M32;NGC 221 ;;galaktyka eliptyczna ;2200;10;dddd;ddd
+33;M33;NGC 598 ;Galaktyka Trójkąta ;galaktyka spiralna ;2300;7;dddd;ddd
+34;M34;NGC 1039 ;;gromada otwarta ;1.4;6;dddd;ddd
+35;M35;NGC 2168 ;;gromada otwarta ;2.8;5.5;dddd;ddd
+36;M36;NGC 1960 ;;gromada otwarta ;4.1;6.5;dddd;ddd
+37;M37;NGC 2099 ;;gromada otwarta ;4.6;6;dddd;ddd
+38;M38;NGC 1912 ;;gromada otwarta ;4.2;7;dddd;ddd
+39;M39;NGC 7092 ;;gromada otwarta ;0.3;5.5;dddd;ddd
+40;M40;;;gwiazda podwójna WNC4 ;1;9;dddd;ddd
