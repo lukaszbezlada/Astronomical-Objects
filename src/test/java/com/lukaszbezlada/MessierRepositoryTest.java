@@ -32,7 +32,7 @@ public class MessierRepositoryTest {
     public void createFileAndObject() throws Exception {
         //given
         final String line1 = "first line";
-        final String line2 = "1;M1;NGC 1952;Mgławica Kraba;pozostałość po supernowej;6,3;9;img/messier/M1m.jpg;img/messier/M1.jpg";
+        final String line2 = "1;M1;NGC 1952;Mgławica Kraba;pozostałość po supernowej;6.3;9;img/messier/M1m.jpg;img/messier/M1.jpg";
         line2List.add(line2); // only for first test
 
         file = File.createTempFile("testFile", ".csv");
@@ -48,8 +48,8 @@ public class MessierRepositoryTest {
         messierObject.setNGCNumber("NGC 1952");
         messierObject.setName("Mgławica Kraba");
         messierObject.setType("pozostałość po supernowej");
-        messierObject.setDistance("6,3");
-        messierObject.setBrightness("9");
+        messierObject.setDistance(Double.parseDouble("6.3"));
+        messierObject.setBrightness(Double.parseDouble("9"));
         messierObject.setImgPath("img/messier/M1m.jpg");
         messierObject.setImgBigPath("img/messier/M1.jpg");
     }

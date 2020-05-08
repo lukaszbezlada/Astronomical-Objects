@@ -36,8 +36,8 @@ public class MessierRepositoryImpl implements MessierRepository {
             messierObject.setNGCNumber(l[2]);
             messierObject.setName(l[3]);
             messierObject.setType(l[4]);
-            messierObject.setDistance(l[5]);
-            messierObject.setBrightness(l[6]);
+            messierObject.setDistance(Double.parseDouble(l[5]));
+            messierObject.setBrightness(Double.parseDouble(l[6]));
             messierObject.setImgPath(l[7]);
             messierObject.setImgBigPath(l[8]);
 

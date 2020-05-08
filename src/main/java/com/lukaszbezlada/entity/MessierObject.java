@@ -12,12 +12,12 @@ public class MessierObject {
     private String NGCNumber;
     private String name;
     private String type;
-    private String distance;
-    private String brightness;
+    private Double distance;
+    private Double brightness;
     private String imgPath;
     private String imgBigPath;
 
-    public MessierObject(int id, String messierNumber, String NGCNumber, String name, String type, String distance, String brightness, String imgPath, String imgBigPath) {
+    public MessierObject(int id, String messierNumber, String NGCNumber, String name, String type, Double distance, Double brightness, String imgPath, String imgBigPath) {
         this.id = id;
         this.messierNumber = messierNumber;
         this.NGCNumber = NGCNumber;
@@ -53,11 +53,11 @@ public class MessierObject {
         this.type = type;
     }
 
-    public void setDistance(String distance) {
+    public void setDistance(Double distance) {
         this.distance = distance;
     }
 
-    public void setBrightness(String brightness) {
+    public void setBrightness(Double brightness) {
         this.brightness = brightness;
     }
 
@@ -85,11 +85,11 @@ public class MessierObject {
         return type;
     }
 
-    public String getDistance() {
+    public Double getDistance() {
         return distance;
     }
 
-    public String getBrightness() {
+    public Double getBrightness() {
         return brightness;
     }
 
