@@ -51,12 +51,12 @@ Added soon
 List of features ready and TODOs for future development
 * Loading astronomical catalog from CSV file
 * Account creation by the user
-* Adding own astronomical objects by users
+* Adding and browsing own astronomical objects by users
+* Display of all user objects by the administrator
+* Preview on the site of all users in the database by the administrator
 
 To-do list:
-* Loading all objects added on page by users
-* Viewing all users in the database by the administrator
-* Deleting user accounts by the administrator
+* Editing user accounts by the administrator
 
 ## Status
 Project is: _in progress_.
