@@ -23,7 +23,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/oldApi/**", "/api/**").permitAll()
                 .antMatchers( "/static/**", "/css/**", "/img/**", "/js/**","/scss/**","/vendor/**").permitAll()
                 .antMatchers(HttpMethod.POST, "/registration").permitAll()
-                .antMatchers("/", "/registration", "/messierdirectory", "/addUser").permitAll()
+                .antMatchers("/", "/registration", "/messierdirectory", "/addUser", "/error").permitAll()
                 .antMatchers("/users", "/allskyobjects").access("hasRole('ADMIN')")
                 .anyRequest().authenticated()
                 .and()
