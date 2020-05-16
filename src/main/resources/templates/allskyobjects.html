@@ -9,33 +9,30 @@
 <nav th:include="account :: loggedUserNav" class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav"></nav>
 
 <!-- Header -->
-<div class="masthead">
+<header class="masthead">
     <div class="mx-auto text-center">
         <div>&nbsp;</div>
         <div>&nbsp;</div>
         <br/><br/><br/>
-        <form action="/account" th:action="@{/account}" method="get">
-            <input type="submit" class="btn btn-info" value="Dodaj zdjęcia"/>
-        </form>
-        <div>&nbsp;</div>
-        <div>&nbsp;</div>
-        <h3 class="text-white mb-4">Twoje zdjęcia</h3>
         <div class="container text-center">
-            <table class="table table-striped table-light table-bordered ">
+            <table class="table table-hover table-light table-bordered">
                 <thead class=thead-dark>
                 <tr>
+                    <th>Id</th>
                     <th>Nazwa</th>
                     <th>Data wykonania</th>
                     <th>Zdjęcie</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="skyObject: ${skyObjectUserList}" th:object="${skyObject}">
+                <tr th:each="skyObject: ${skyObjectsList}" th:object="${skyObject}">
+                    <td th:text="*{id}">Id</td>
                     <td th:text="*{name}">Sky object name</td>
                     <td th:text="*{date}">Date</td>
                     <td><a th:href="*{image}" target=_top><p th:text="*{name}"></p></a></td>
                 </tr>
                 <tr th:remove="all">
+                    <td>xxx</td>
                     <td>xxx</td>
                     <td>xxx</td>
                     <td>xxx</td>
@@ -45,7 +42,6 @@
         </div>
     </div>
 
-</div>
 </header>
 
 <div th:include="index :: footerAndScripts"></div>
