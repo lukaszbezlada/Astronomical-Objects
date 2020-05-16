@@ -1,8 +1,8 @@
 package com.lukaszbezlada.controller;
 
+import com.lukaszbezlada.entity.MessierObject;
 import com.lukaszbezlada.entity.SkyObject;
 import com.lukaszbezlada.entity.User;
-import com.lukaszbezlada.entity.MessierObject;
 import com.lukaszbezlada.repository.MessierRepository;
 import com.lukaszbezlada.service.SkyObjectService;
 import com.lukaszbezlada.service.UserService;
@@ -11,7 +11,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
@@ -29,7 +28,7 @@ public class WebController {
         this.userService = userService;
     }
 
-    @RequestMapping("/")
+    @GetMapping("/")
     public String index(Model model) {
         model.addAttribute("user", new User());
         return "index";
@@ -61,7 +60,7 @@ public class WebController {
         return "registration";
     }
 
-    @RequestMapping("/account")
+    @GetMapping("/account")
     public String account(Model model) {
         model.addAttribute("skyObject", new SkyObject());
         return "account";
@@ -73,14 +72,19 @@ public class WebController {
         return "skyobjects";
     }
 
-    @RequestMapping("/admin")
-    public String admin(Model model) {
+    @GetMapping("/users")
+    public String users(Model model) {
         model.addAttribute("userList", userService.findAllUsers());
-        return "admin";
+        return "users";
     }
 
+    @GetMapping("/allskybjects")
+    public String allskybjects(Model model) {
+//        model.addAttribute("userList", skyObjectService.findAll());
+        return "allskyobjects";
+    }
 
-    @RequestMapping("/failure")
+    @GetMapping("/failure")
     public String failure(Model model) {
         model.addAttribute("failure", "Wprowadzono niepoprawne dane użytkownika");
         return "login";

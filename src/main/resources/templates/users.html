@@ -20,6 +20,14 @@
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="/messierdirectory">Katalog Messiera</a>
                 </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button"
+                       aria-expanded="false" id="submenu1" aria-haspopup="true"> Panel administratora </a>
+                    <div class="dropdown-menu" aria-labelledby="submenu">
+                        <a class="dropdown-item" href="/users"> Użytkownicy </a>
+                        <a class="dropdown-item" href="/allskybjects"> Obiekty użytkowników </a>
+                    </div>
+                </li>
                 <li class="nav-item">
                     <br/>
                     <form action="/logmeout" th:action="@{/logmeout}" method="post">

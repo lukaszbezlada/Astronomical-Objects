@@ -40,55 +40,51 @@
 </nav>
 
 <!-- Header -->
-<div class="masthead">
-    <div class="container d-flex h-100 align-items-center">
-        <div class="mx-auto text-center">
-            <h2 class="alert-danger" th:if="${error} != null" th:text="${error}"></h2>
-            <h2 class="alert-success" th:if="${success} != null" th:text="${success}"></h2>
-            <h3 class="text-white mb-4">Dodaj swoje własne zdjęcia</h3>
-            <div>&nbsp;</div>
-            <form class="addUser" method="post" enctype="multipart/form-data" action="/addSkyObject"
-                  th:action="@{/addSkyObject}" th:object="${skyObject}">
-
-                <div class="form">
-                    <div>
-                        <input type="text" class="form-control" name="name" placeholder="Nazwa obiektu"
-                               th:field="*{name}">
-                    </div>
-                </div>
-                <br/>
-                <div class="form">
-                    <div>
-                        <input type="date" class="form-control" name="dateTime" placeholder="Data"
-                               th:field="*{date}">
-                    </div>
-                </div>
-                <br/>
-                <div class="form">
-                    <div>
-                        <input type="file" name="fileupload"/>
-                    </div>
-                </div>
-                <div>&nbsp;</div>
-                <button type="submit" class="btn btn-primary">Wyślij</button>
-            </form>
-            <div>&nbsp;</div>
-            <div>&nbsp;</div>
-            <form action="/skyobjects" th:action="@{/skyobjects}" method="get">
-                <input type="submit" class="btn btn-info" value="Lista dodanych zdjęć"/>
-            </form>
-            <div>&nbsp;</div>
-            <div>&nbsp;</div>
-
+<header class="masthead">
+    <div  class="mx-auto text-center">
+        <div>&nbsp;</div>
+        <div>&nbsp;</div>
+        <br/>
+        <br/>
+        <form action="/account" th:action="@{/account}" method="get">
+            <input type="submit" class="btn btn-info" value="Dodaj zdjęcia"/>
+        </form>
+<!--        <div>&nbsp;</div>-->
+<!--        <div>&nbsp;</div>-->
+<!--        <div  class="container text-center">-->
+<!--            <table class="table table-hover table-light table-bordered">-->
+<!--                <thead class=thead-dark>-->
+<!--                <tr>-->
+<!--                    <th>Id</th>-->
+<!--                    <th>Login</th>-->
+<!--                    <th>Imię</th>-->
+<!--                    <th>Nazwisko</th>-->
+<!--                    <th>Email</th>-->
+<!--                </tr>-->
+<!--                </thead>-->
+<!--                <tbody>-->
+<!--                <tr th:each="user: ${userList}" th:object="${user}">-->
+<!--                    <td th:text="*{user_id}">ID</td>-->
+<!--                    <td th:text="*{login}">Login</td>-->
+<!--                    <td th:text="*{firstName}">First name</td>-->
+<!--                    <td th:text="*{lastName}">Last name</td>-->
+<!--                    <td th:text="*{email}">Email</td>-->
+<!--                </tr>-->
+<!--                <tr th:remove="all">-->
+<!--                    <td>xxx</td>-->
+<!--                    <td>xxx</td>-->
+<!--                    <td>xxx</td>-->
+<!--                    <td>xxx</td>-->
+<!--                    <td>xxx</td>-->
+<!--                </tr>-->
+<!--                </tbody>-->
+<!--            </table>-->
         </div>
-
     </div>
 
-</div>
 </header>
 
 <div th:include="index :: footerAndScripts"></div>
 
 </body>
-
 </html>
