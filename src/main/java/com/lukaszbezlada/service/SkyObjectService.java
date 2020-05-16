@@ -35,4 +35,8 @@ public class SkyObjectService {
         User user = userRepository.findByLogin(login);
         return skyObjectRepository.findSkyObjectsByUserId(user.getUser_id());
     }
+
+    public List<SkyObject> findAllSkyObjects(){
+        return skyObjectRepository.findAll();
+    }
 }

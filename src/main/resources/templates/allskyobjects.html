@@ -6,79 +6,39 @@
 <body id="page-top">
 
 <!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-    <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="/">Start</a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-                aria-label="Toggle navigation">
-            Menu
-            <i class="fas fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="/messierdirectory">Katalog Messiera</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button"
-                       aria-expanded="false" id="submenu1" aria-haspopup="true"> Panel administratora </a>
-                    <div class="dropdown-menu" aria-labelledby="submenu">
-                        <a class="dropdown-item" href="/users"> Użytkownicy </a>
-                        <a class="dropdown-item" href="/allskybjects"> Obiekty użytkowników </a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <br/>
-                    <form action="/logmeout" th:action="@{/logmeout}" method="post">
-                        <input type="submit" class="btn btn-primary" value="Wyloguj"/>
-                    </form>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+<nav th:include="account :: loggedUserNav" class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav"></nav>
 
 <!-- Header -->
 <header class="masthead">
-    <div  class="mx-auto text-center">
+    <div class="mx-auto text-center">
         <div>&nbsp;</div>
         <div>&nbsp;</div>
-        <br/>
-        <br/>
-        <form action="/account" th:action="@{/account}" method="get">
-            <input type="submit" class="btn btn-info" value="Dodaj zdjęcia"/>
-        </form>
-<!--        <div>&nbsp;</div>-->
-<!--        <div>&nbsp;</div>-->
-<!--        <div  class="container text-center">-->
-<!--            <table class="table table-hover table-light table-bordered">-->
-<!--                <thead class=thead-dark>-->
-<!--                <tr>-->
-<!--                    <th>Id</th>-->
-<!--                    <th>Login</th>-->
-<!--                    <th>Imię</th>-->
-<!--                    <th>Nazwisko</th>-->
-<!--                    <th>Email</th>-->
-<!--                </tr>-->
-<!--                </thead>-->
-<!--                <tbody>-->
-<!--                <tr th:each="user: ${userList}" th:object="${user}">-->
-<!--                    <td th:text="*{user_id}">ID</td>-->
-<!--                    <td th:text="*{login}">Login</td>-->
-<!--                    <td th:text="*{firstName}">First name</td>-->
-<!--                    <td th:text="*{lastName}">Last name</td>-->
-<!--                    <td th:text="*{email}">Email</td>-->
-<!--                </tr>-->
-<!--                <tr th:remove="all">-->
-<!--                    <td>xxx</td>-->
-<!--                    <td>xxx</td>-->
-<!--                    <td>xxx</td>-->
-<!--                    <td>xxx</td>-->
-<!--                    <td>xxx</td>-->
-<!--                </tr>-->
-<!--                </tbody>-->
-<!--            </table>-->
+        <br/><br/><br/>
+        <div class="container text-center">
+            <table class="table table-hover table-light table-bordered">
+                <thead class=thead-dark>
+                <tr>
+                    <th>Id</th>
+                    <th>Nazwa</th>
+                    <th>Data wykonania</th>
+                    <th>Zdjęcie</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="skyObject: ${skyObjectsList}" th:object="${skyObject}">
+                    <td th:text="*{id}">Id</td>
+                    <td th:text="*{name}">Sky object name</td>
+                    <td th:text="*{date}">Date</td>
+                    <td><a th:href="*{image}" target=_top><p th:text="*{name}"></p></a></td>
+                </tr>
+                <tr th:remove="all">
+                    <td>xxx</td>
+                    <td>xxx</td>
+                    <td>xxx</td>
+                    <td>xxx</td>
+                </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 
