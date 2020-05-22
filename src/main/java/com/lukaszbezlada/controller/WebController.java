@@ -78,6 +78,11 @@ public class WebController {
         return "users";
     }
 
+    @GetMapping("/editUser")
+    public String editUser() {
+        return "editUser";
+    }
+
     @GetMapping("/allskybjects")
     public String allskybjects(Model model) {
         model.addAttribute("skyObjectsList", skyObjectService.findAllSkyObjects());
