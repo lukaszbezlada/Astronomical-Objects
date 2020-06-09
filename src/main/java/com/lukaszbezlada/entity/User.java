@@ -64,7 +64,7 @@ public class User implements Serializable {
         this.skyObjectList = skyObjectList;
     }
 
-    public Long getUser_id() {
+    public Long getId() {
         return id;
     }
 

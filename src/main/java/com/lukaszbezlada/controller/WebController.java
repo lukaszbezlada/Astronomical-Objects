@@ -55,7 +55,9 @@ public class WebController {
 
     @PostMapping("/registration")
     public String registrationWithEmail(@RequestParam(name = "e_mail", required = false) String e_mail, Model model) {
-        model.addAttribute("user", new User());
+        User user = new User();
+        user.setEmail(e_mail);
+        model.addAttribute("user", user);
         model.addAttribute("e_mail", e_mail);
         return "registration";
     }
@@ -76,11 +78,6 @@ public class WebController {
     public String users(Model model) {
         model.addAttribute("userList", userService.findAllUsers());
         return "users";
-    }
-
-    @GetMapping("/editUser")
-    public String editUser() {
-        return "editUser";
     }
 
     @GetMapping("/allskybjects")

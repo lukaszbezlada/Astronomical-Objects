@@ -27,8 +27,8 @@
             </thead>
             <tbody>
             <tr style="cursor:pointer"
-                onclick="window.location='/editUser'" th:each="user: ${userList}" th:object="${user}">
-                <td th:text="*{user_id}">ID</td>
+                th:onclick="'window.location.href=\'/editUser?user=' + *{id} + '\''" th:each="user: ${userList}" th:object="${user}">
+                <td th:text="*{id}">ID</td>
                 <td th:text="*{login}">Login</td>
                 <td th:text="*{firstName}">First name</td>
                 <td th:text="*{lastName}">Last name</td>
