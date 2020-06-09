@@ -9,8 +9,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -51,9 +51,9 @@ public class UserController {
         return user.getPassword2().equals(user.getPassword());
     }
 
-    @GetMapping("/editUser?user={userId}")
-    public String editUser(@PathVariable(name="userId") Long userId, Model model) {
-        Optional<User> user = userService.findUserById(userId);
+    @GetMapping("/editUser")
+    public String editUser(@RequestParam(name="user") String userId, Model model) {
+        Optional<User> user = userService.findUserById(Long.parseLong(userId));
         model.addAttribute("userClicked", user);
         return "editUser";
     }

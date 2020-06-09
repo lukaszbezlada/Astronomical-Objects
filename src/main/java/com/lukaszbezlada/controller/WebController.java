@@ -80,7 +80,7 @@ public class WebController {
         return "users";
     }
 
-    @GetMapping("/allskybjects")
+    @GetMapping("/allskyobjects")
     public String allskybjects(Model model) {
         model.addAttribute("skyObjectsList", skyObjectService.findAllSkyObjects());
         return "allskyobjects";
