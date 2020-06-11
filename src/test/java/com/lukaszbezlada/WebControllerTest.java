@@ -1,7 +1,7 @@
 package com.lukaszbezlada;
 
-import com.lukaszbezlada.entity.User;
 import com.lukaszbezlada.entity.MessierObject;
+import com.lukaszbezlada.entity.User;
 import com.lukaszbezlada.repository.MessierRepository;
 import com.lukaszbezlada.service.SkyObjectService;
 import org.junit.Test;
@@ -17,7 +17,6 @@ import java.util.ArrayList;
 
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -82,21 +81,34 @@ public class WebControllerTest {
                 .andExpect(model().attribute("user", new User()))
                 .andExpect(view().name("registration"));
     }
-//TODO testy dla zalogowanych i metody post
+
     @Test
-    public void shouldReturnRegistrationPagePost() throws Exception {
-        String name = "e_mail";
+    public void shouldReturnLoginPageAfterFailure() throws Exception {
+        String failure = "Wprowadzono niepoprawne dane użytkownika";
         mockMvc
-                .perform(post("/registration"))
+                .perform(get("/failure"))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(content().contentType("application/json;charset=UTF-8"))
-                .andExpect(model().attributeExists("user"))
-                .andExpect(model().attributeExists("e_mail"))
-                .andExpect(model().attribute("user", new User()))
-                .andExpect(model().attribute("e_mail", name))
-                .andExpect(view().name("registration"));
+                .andExpect(model().attributeExists("failure"))
+                .andExpect(model().attribute("failure", failure))
+                .andExpect(view().name("login"));
     }
+
+//TODO testy dla zalogowanych i metody post
+
+//    @Test
+//    public void shouldReturnRegistrationPagePost() throws Exception {
+//        String name = "e_mail";
+//        mockMvc
+//                .perform(post("/registration"))
+//                .andDo(print())
+//                .andExpect(status().isOk())
+//                .andExpect(content().contentType("application/json;charset=UTF-8"))
+//                .andExpect(model().attributeExists("user"))
+//                .andExpect(model().attributeExists("e_mail"))
+//                .andExpect(model().attribute("e_mail", name))
+//                .andExpect(view().name("registration"));
+//    }
 
 //    @Test
 //    public void shouldReturnAccountPage() throws Exception {
@@ -121,18 +133,5 @@ public class WebControllerTest {
 //                .andExpect(model().attribute("skyObjectUserList", emptylist))
 //                .andExpect(view().name("skyObjects"));
 //    }
-
-    @Test
-    public void shouldReturnLoginPageAfterFailure() throws Exception {
-        String failure = "Wprowadzono niepoprawne dane użytkownika";
-        mockMvc
-                .perform(get("/failure"))
-                .andDo(print())
-                .andExpect(status().isOk())
-                .andExpect(model().attributeExists("failure"))
-                .andExpect(model().attribute("failure", failure))
-                .andExpect(view().name("login"));
-    }
-
 
 }
