@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.*;
 
@@ -26,7 +27,7 @@ public class SkyObjectController {
     }
 
     @PostMapping("/addSkyObject")
-    public String addSkyObject(@RequestPart(name = "fileupload") MultipartFile file, SkyObject skyObject, Model model) {
+    public String addSkyObject(@RequestPart(name = "fileupload") MultipartFile file, SkyObject skyObject, RedirectAttributes redirectAttr, Model model) {
         File uploadDirectory = new File(imagePath);
         uploadDirectory.mkdirs(); // upewniam się, że katalog do którego chcę zapisać plik istnieje, a jeśli nie, to go tworzę
 
@@ -46,7 +47,7 @@ public class SkyObjectController {
         }
         skyObject.setImage(imageShortPath + file.getOriginalFilename());
         skyObjectService.addSkyObject(skyObject);
-        model.addAttribute("success", "Twój obiekt został zapisany");
+        redirectAttr.addFlashAttribute("success", "Twój obiekt został zapisany");
         return "redirect:account";
 
     }

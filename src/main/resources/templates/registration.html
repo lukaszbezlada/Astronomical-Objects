@@ -53,7 +53,6 @@
                     </div>
                     <div>&nbsp;</div>
                     <div>
-                        <!--#TODO poprawić placeholder żeby działało z th:value-->
                         <input th:if="${e_mail} != null" type="email" class="form-control" name="e-mail"
                                th:field="*{email}" th:placeholder="${e_mail}" th:value="${e_mail}">
                     </div>
@@ -61,10 +60,6 @@
                         <input type="email" class="form-control" name="e-mail" placeholder="Adres e-mail"
                                th:if="${e_mail} == null" th:field="*{email}">
                     </div>
-                    <!--                    <div>-->
-                    <!--                        <input type="email" class="form-control" name="e-mail" placeholder="Adres e-mail"-->
-                    <!--                                th:field="*{email}">-->
-                    <!--                    </div>-->
                 </div>
                 <br/>
                 <div class="form-row">

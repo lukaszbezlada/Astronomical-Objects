@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 public class UserController {
@@ -52,9 +52,28 @@ public class UserController {
     }
 
     @GetMapping("/editUser")
-    public String editUser(@RequestParam(name="user") String userId, Model model) {
-        Optional<User> user = userService.findUserById(Long.parseLong(userId));
+    public String editUser(@RequestParam(name = "user") String userId, Model model) {
+        User user = userService.findUserById(Long.parseLong(userId)).get();
         model.addAttribute("userClicked", user);
         return "editUser";
+    }
+
+    @PostMapping("/deleteUser")
+    public String deleteUser(@RequestParam Long id, RedirectAttributes redirectAttr) {
+        userService.deleteUserById(id);
+        redirectAttr.addFlashAttribute("userDeleted", "Użytkownik został usunięty");
+        return "redirect:users";
+    }
+
+    @PostMapping("/updateUser")
+    public String updateUser(@ModelAttribute User userClicked, RedirectAttributes redirectAttr) {
+        User userToUpdate = userService.findUserById(userClicked.getId()).get();
+        userToUpdate.setEmail(userClicked.getEmail());
+        userToUpdate.setLogin(userClicked.getLogin());
+        userToUpdate.setFirstName(userClicked.getFirstName());
+        userToUpdate.setLastName(userClicked.getLastName());
+        userService.updateUser(userToUpdate);
+        redirectAttr.addFlashAttribute("userUpdated", "Użytkownik został zaktualizowany");
+        return "redirect:users";
     }
 }

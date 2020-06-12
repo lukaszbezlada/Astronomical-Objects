@@ -10,39 +10,42 @@
 
 <!-- Header -->
 <header class="masthead1">
-    <div  class="mx-auto text-center">
+    <div class="mx-auto text-center">
         <div>&nbsp;</div>
         <div>&nbsp;</div>
         <br/><br/><br/>
-        <div  class="container text-center">
-        <table class="table table-hover table-light table-bordered">
-            <thead class=thead-dark>
-            <tr>
-                <th>Id</th>
-                <th>Login</th>
-                <th>Imię</th>
-                <th>Nazwisko</th>
-                <th>Email</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr style="cursor:pointer"
-                th:onclick="'window.location.href=\'/editUser?user=' + *{id} + '\''" th:each="user: ${userList}" th:object="${user}">
-                <td th:text="*{id}">ID</td>
-                <td th:text="*{login}">Login</td>
-                <td th:text="*{firstName}">First name</td>
-                <td th:text="*{lastName}">Last name</td>
-                <td th:text="*{email}">Email</td>
-            </tr>
-            <tr th:remove="all">
-                <td>xxx</td>
-                <td>xxx</td>
-                <td>xxx</td>
-                <td>xxx</td>
-                <td>xxx</td>
-            </tr>
-            </tbody>
-        </table>
+        <div class="container text-center">
+            <h3 class="text-danger mb-4" th:if="${userDeleted} != null" th:text="${userDeleted}"></h3>
+            <h3 class="text-success mb-4" th:if="${userUpdated} != null" th:text="${userUpdated}"></h3>
+            <table class="table table-hover table-light table-bordered">
+                <thead class=thead-dark>
+                <tr>
+                    <th>Id</th>
+                    <th>Login</th>
+                    <th>Imię</th>
+                    <th>Nazwisko</th>
+                    <th>Email</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr style="cursor:pointer"
+                    th:onclick="'window.location.href=\'/editUser?user=' + *{id} + '\''" th:each="user: ${userList}"
+                    th:object="${user}">
+                    <td th:text="*{id}">ID</td>
+                    <td th:text="*{login}">Login</td>
+                    <td th:text="*{firstName}">First name</td>
+                    <td th:text="*{lastName}">Last name</td>
+                    <td th:text="*{email}">Email</td>
+                </tr>
+                <tr th:remove="all">
+                    <td>xxx</td>
+                    <td>xxx</td>
+                    <td>xxx</td>
+                    <td>xxx</td>
+                    <td>xxx</td>
+                </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 

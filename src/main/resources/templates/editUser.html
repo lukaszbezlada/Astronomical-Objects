@@ -10,12 +10,48 @@
 
 <!-- Header -->
 <header class="masthead">
-    <div  class="mx-auto text-center">
-        <div>&nbsp;</div>
-        <div>&nbsp;</div>
-        <br/><br/><br/>
-        <div  class="container text-center">
+    <div class="container d-flex h-100 align-items-center">
+        <div class="mx-auto text-center">
+            <h3 class="text-white mb-4">Edycja użytkownika</h3>
+            <div>&nbsp;</div>
+            <form action="#" method="POST" th:action="@{/updateUser}" th:object="${userClicked}" class="addUser">
+                <div><input type="hidden" name="id" th:value="*{id}" th:field="*{id}"></div>
+                <div class="form-row">
+                    <div><h2 class="text-white mb-4">Login</h2><input type="text" class="form-control" name="login"
+                                                                      th:field="*{login}"
+                                                                      th:placeholder="*{login}"
+                                                                      th:value="*{login}"></div>
+                    <div>&nbsp;</div>
+                    <div><h2 class="text-white mb-4">Adres e-mail</h2><input type="email" class="form-control"
+                                                                             name="e-mail"
+                                                                             th:field="*{email}"
+                                                                             th:placeholder="*{email}"
+                                                                             th:value="*{email}"></div>
+                </div>
+                <div>&nbsp;</div>
+                <div>&nbsp;</div>
+                <div class="form-row">
+                    <div><h2 class="text-white mb-4">Imię</h2><input type="text" class="form-control" name="firstName"
+                                                                     th:field="*{firstName}"
+                                                                     th:placeholder="*{firstName}"
+                                                                     th:value="*{firstName}"></div>
+                    <div>&nbsp;</div>
+                    <div><h2 class="text-white mb-4">Nazwisko</h2><input type="text" class="form-control"
+                                                                         name="lastName"
+                                                                         th:field="*{lastName}"
+                                                                         th:placeholder="*{lastName}"
+                                                                         th:value="*{lastName}"></div>
+                </div>
+                <br/>
+                <br/>
+                <button type="submit" class="btn btn-success">Edytuj użytkownika</button>
+            </form>
+            <br/>
 
+            <form action="/deleteUser" th:action="@{/deleteUser}" method="post" th:object="${userClicked}">
+                <input type="hidden" name="id" th:value="*{id}">
+                <input type="submit" class="btn btn-danger" value="Usuń użytkownika"/>
+            </form>
         </div>
     </div>
 
