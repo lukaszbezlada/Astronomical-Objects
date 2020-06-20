@@ -33,7 +33,7 @@ public class SkyObjectService {
     public List<SkyObject> findUserSkyObjects() {
         String login = SecurityContextHolder.getContext().getAuthentication().getName();
         User user = userRepository.findByLogin(login);
-        return skyObjectRepository.findSkyObjectsByUserId(user.getUser_id());
+        return skyObjectRepository.findSkyObjectsByUserId(user.getId());
     }
 
     public List<SkyObject> findAllSkyObjects(){

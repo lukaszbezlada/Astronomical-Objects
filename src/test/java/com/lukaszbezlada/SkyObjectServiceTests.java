@@ -52,7 +52,7 @@ public class SkyObjectServiceTests {
         List<SkyObject> found = skyObjectRepository.findSkyObjectsByUserId(userId);
 
         //then
-        assertThat(found.get(0).getUser().getUser_id()).isEqualTo(userId);
+        assertThat(found.get(0).getUser().getId()).isEqualTo(userId);
         assertThat(found.get(0)).isEqualTo(skyObject);
     }
 }
