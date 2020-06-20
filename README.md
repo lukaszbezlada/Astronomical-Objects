@@ -40,6 +40,7 @@ Website content and information were created from wikipedia.org sources.
 ## Utilities
 * IntelliJ IDEA Ultimate
 * Maven
+* Lombok
 * Docker
 * DataGrip
 * Postman

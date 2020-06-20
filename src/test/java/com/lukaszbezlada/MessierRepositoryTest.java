@@ -42,16 +42,17 @@ public class MessierRepositoryTest {
         pw.println(line2);
         pw.close();
 
-        messierObject = new MessierObject();
-        messierObject.setId(Integer.parseInt("1"));
-        messierObject.setMessierNumber("M1");
-        messierObject.setNGCNumber("NGC 1952");
-        messierObject.setName("Mgławica Kraba");
-        messierObject.setType("pozostałość po supernowej");
-        messierObject.setDistance(Double.parseDouble("6.3"));
-        messierObject.setBrightness(Double.parseDouble("9"));
-        messierObject.setImgPath("img/messier/M1m.jpg");
-        messierObject.setImgBigPath("img/messier/M1.jpg");
+        messierObject = MessierObject.builder()
+                .id(Integer.parseInt("1"))
+                .messierNumber("M1")
+                .NGCNumber("NGC 1952")
+                .name("Mgławica Kraba")
+                .type("pozostałość po supernowej")
+                .distance(Double.parseDouble("6.3"))
+                .brightness(Double.parseDouble("9"))
+                .imgPath("img/messier/M1m.jpg")
+                .imgBigPath("img/messier/M1.jpg")
+                .build();
     }
 
     @After

@@ -29,17 +29,17 @@ public class MessierRepositoryImpl implements MessierRepository {
 
         for (String line : read) {
             String[] l = line.split(";");
-//            #TODO zamienić na Builder
-            MessierObject messierObject = new MessierObject();
-            messierObject.setId(Integer.parseInt(l[0]));
-            messierObject.setMessierNumber(l[1]);
-            messierObject.setNGCNumber(l[2]);
-            messierObject.setName(l[3]);
-            messierObject.setType(l[4]);
-            messierObject.setDistance(Double.parseDouble(l[5]));
-            messierObject.setBrightness(Double.parseDouble(l[6]));
-            messierObject.setImgPath(l[7]);
-            messierObject.setImgBigPath(l[8]);
+            MessierObject messierObject = MessierObject.builder()
+                    .id(Integer.parseInt(l[0]))
+                    .messierNumber(l[1])
+                    .NGCNumber(l[2])
+                    .name(l[3])
+                    .type(l[4])
+                    .distance(Double.parseDouble(l[5]))
+                    .brightness(Double.parseDouble(l[6]))
+                    .imgPath(l[7])
+                    .imgBigPath(l[8])
+                    .build();
 
             messierObjects.add(messierObject);
         }
