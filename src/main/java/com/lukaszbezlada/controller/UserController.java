@@ -15,6 +15,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class UserController {
@@ -53,8 +54,11 @@ public class UserController {
 
     @GetMapping("/editUser")
     public String editUser(@RequestParam(name = "user") String userId, Model model) {
-        User user = userService.findUserById(Long.parseLong(userId)).get();
-        model.addAttribute("userClicked", user);
+        Optional<User> userOptional = userService.findUserById(Long.parseLong(userId));
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+            model.addAttribute("userClicked", user);
+        }
         return "editUser";
     }
 
@@ -74,14 +78,17 @@ public class UserController {
             errors.forEach(err -> System.out.println(err.getDefaultMessage()));
         }
         if (result.getAllErrors().stream().allMatch(objectError -> objectError.getDefaultMessage().equals("Wpisz hasło"))) {
-            User userToUpdate = userService.findUserById(userClicked.getId()).get();
-            userToUpdate.setEmail(userClicked.getEmail());
-            userToUpdate.setLogin(userClicked.getLogin());
-            userToUpdate.setFirstName(userClicked.getFirstName());
-            userToUpdate.setLastName(userClicked.getLastName());
-            userService.updateUser(userToUpdate);
-            redirectAttr.addFlashAttribute("userUpdated", "Użytkownik został zaktualizowany");
-            return "redirect:users";
+            Optional<User> userOptional = userService.findUserById(userClicked.getId());
+            if (userOptional.isPresent()) {
+                User userToUpdate = userOptional.get();
+                userToUpdate.setEmail(userClicked.getEmail());
+                userToUpdate.setLogin(userClicked.getLogin());
+                userToUpdate.setFirstName(userClicked.getFirstName());
+                userToUpdate.setLastName(userClicked.getLastName());
+                userService.updateUser(userToUpdate);
+                redirectAttr.addFlashAttribute("userUpdated", "Użytkownik został zaktualizowany");
+                return "redirect:users";
+            }
         }
         return "editUser";
     }

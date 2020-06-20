@@ -41,7 +41,7 @@ public class WebController {
 
     @GetMapping("/messierdirectory")
     public String messier(Model model) {
-        String path = "/home/lukasz/Pulpit/Projekty/Astronomical-Objects/src/main/resources/messier.csv";
+        String path = messierRepository.getFilePathWithMessierObjects();
         model.addAttribute("messierObjectAttribute", new MessierObject());
         model.addAttribute("messierListAttribute", messierRepository.readFile(path));
         return "messierdirectory";

@@ -3,11 +3,14 @@ package com.lukaszbezlada.repository;
 import com.lukaszbezlada.entity.MessierObject;
 import org.springframework.stereotype.Repository;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Properties;
 
 @Repository
 public class MessierRepositoryImpl implements MessierRepository {
@@ -44,5 +47,18 @@ public class MessierRepositoryImpl implements MessierRepository {
             messierObjects.add(messierObject);
         }
         return messierObjects;
+    }
+
+    @Override
+    public String getFilePathWithMessierObjects() {
+        Properties properties = new Properties();
+        try {
+            properties.load(new FileInputStream("src/main/resources/config.properties"));
+        } catch (FileNotFoundException e) {
+            System.out.println("Nie znaleziono pliku");
+        } catch (IOException err) {
+            System.out.println("Błąd odczytu pliku");
+        }
+        return properties.getProperty("CSVPath");
     }
 }

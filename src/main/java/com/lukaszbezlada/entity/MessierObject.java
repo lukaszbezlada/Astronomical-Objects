@@ -22,6 +22,6 @@ public class MessierObject {
     private String imgBigPath;
 
     public MessierObject() {
-
+    //for Spring Data JPA
     }
 }
