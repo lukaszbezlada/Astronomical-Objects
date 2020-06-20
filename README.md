@@ -54,9 +54,10 @@ List of features ready and TODOs for future development
 * Adding and browsing own astronomical objects by users
 * Display of all user objects by the administrator
 * Preview on the site of all users in the database by the administrator
+* Editing user accounts by the administrator
 
 To-do list:
-* Editing user accounts by the administrator
+* Add more Messier objects
 
 ## Status
 Project is: _in progress_.
