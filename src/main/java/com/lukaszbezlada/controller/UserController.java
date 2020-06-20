@@ -66,14 +66,23 @@ public class UserController {
     }
 
     @PostMapping("/updateUser")
-    public String updateUser(@ModelAttribute User userClicked, RedirectAttributes redirectAttr) {
-        User userToUpdate = userService.findUserById(userClicked.getId()).get();
-        userToUpdate.setEmail(userClicked.getEmail());
-        userToUpdate.setLogin(userClicked.getLogin());
-        userToUpdate.setFirstName(userClicked.getFirstName());
-        userToUpdate.setLastName(userClicked.getLastName());
-        userService.updateUser(userToUpdate);
-        redirectAttr.addFlashAttribute("userUpdated", "Użytkownik został zaktualizowany");
-        return "redirect:users";
+    public String updateUser(@Valid @ModelAttribute User userClicked, BindingResult result, RedirectAttributes redirectAttr, Model model) {
+        model.addAttribute("userClicked", userClicked);
+
+        if (result.hasErrors()) {
+            List<ObjectError> errors = result.getAllErrors();
+            errors.forEach(err -> System.out.println(err.getDefaultMessage()));
+        }
+        if (result.getAllErrors().stream().allMatch(objectError -> objectError.getDefaultMessage().equals("Wpisz hasło"))) {
+            User userToUpdate = userService.findUserById(userClicked.getId()).get();
+            userToUpdate.setEmail(userClicked.getEmail());
+            userToUpdate.setLogin(userClicked.getLogin());
+            userToUpdate.setFirstName(userClicked.getFirstName());
+            userToUpdate.setLastName(userClicked.getLastName());
+            userService.updateUser(userToUpdate);
+            redirectAttr.addFlashAttribute("userUpdated", "Użytkownik został zaktualizowany");
+            return "redirect:users";
+        }
+        return "editUser";
     }
 }

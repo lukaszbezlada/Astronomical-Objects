@@ -15,8 +15,8 @@
         <div>&nbsp;</div>
         <br/><br/><br/>
         <div class="container text-center">
-            <h3 class="text-danger mb-4" th:if="${userDeleted} != null" th:text="${userDeleted}"></h3>
-            <h3 class="text-success mb-4" th:if="${userUpdated} != null" th:text="${userUpdated}"></h3>
+            <h3 class="alert-danger mb-4" th:if="${userDeleted} != null" th:text="${userDeleted}"></h3>
+            <h3 class="alert-success mb-4" th:if="${userUpdated} != null" th:text="${userUpdated}"></h3>
             <table class="table table-hover table-light table-bordered">
                 <thead class=thead-dark>
                 <tr>
