@@ -36,7 +36,7 @@ public class User implements Serializable {
     private String firstName;
 
     @Column
-    @Pattern(regexp = "^[\\p{Alnum}]{3,10}$", message = "{com.lukaszbezlada.entity.User.lastName.Pattern}")
+    @Pattern(regexp = "^[\\p{Alnum}]{3,20}$", message = "{com.lukaszbezlada.entity.User.lastName.Pattern}")
     private String lastName;
 
     @Column
