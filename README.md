@@ -53,7 +53,7 @@ Step 1. Run database e.g. with Docker:
 
 Step 2. Create database schema from file ao_db.sql (/src/main/resources/ao_db.sql)
 
-Step 3. Download project and run it in IDE
+Step 3. Download project and run it in IDE or deploy astronomical-objects-0.0.1-SNAPSHOT.war on server
 
 Step 4. Website will be by default at http://localhost:8080/ and API http://localhost:8080/api
 
