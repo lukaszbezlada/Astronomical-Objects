@@ -46,7 +46,16 @@ Website content and information were created from wikipedia.org sources.
 * Postman
 
 ## Setup
-Added soon
+Step 1. Run database e.g. with Docker:
+ - download mysql image
+ - build container: sudo docker run -d --name **CONTAINER_NAME** -e MYSQL_ROOT_PASSWORD=**YOUR_PASSWORD** -v /**LOCALIZATION**:/var/lib/mysql -p 3306:3306 mysql
+ - start cointainer: sudo docker run **CONTAINER_NAME**
+
+Step 2. Create database schema from file ao_db.sql (/src/main/resources/ao_db.sql)
+
+Step 3. Download project and run it in IDE
+
+Step 4. Website will be by default at http://localhost:8080/
 
 ## Features
 List of features ready and TODOs for future development
