@@ -55,7 +55,7 @@ Step 2. Create database schema from file ao_db.sql (/src/main/resources/ao_db.sq
 
 Step 3. Download project and run it in IDE
 
-Step 4. Website will be by default at http://localhost:8080/
+Step 4. Website will be by default at http://localhost:8080/ and API http://localhost:8080/api
 
 ## Features
 List of features ready and TODOs for future development
