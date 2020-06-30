@@ -21,10 +21,11 @@ Website content and information were created from wikipedia.org sources.
 
 
 ## Screenshots
-![Main page](./src/main/resources/static/img/readme/registration.png)
-![Main page2](./src/main/resources/static/img/readme/main2.png)
-![AddSkyObject](./src/main/resources/static/img/readme/addobject.png)
-![AddSkyObject](./src/main/resources/static/img/readme/userslist.png)
+![](./src/main/resources/static/img/readme/registration.png)
+![](./src/main/resources/static/img/readme/main2.png)
+![](./src/main/resources/static/img/readme/messier.png)
+![](./src/main/resources/static/img/readme/addobject.png)
+![](./src/main/resources/static/img/readme/userslist.png)
 
 ## Technologies
 * Spring Framework
