@@ -6,12 +6,12 @@ Id;Numer Messiera;Numer NGC;Nazwa zwyczajowa;Typ obiektu;Odległość [tys. lat 
 5;M5;NGC 5904 ;;gromada kulista ;23;7;img/messier/M5m.jpg;img/messier/M5.jpg
 6;M6;NGC 6405;Gromada Motyl ;gromada otwarta ;2;4.5;img/messier/M6m.jpg;img/messier/M6.jpg
 7;M7;NGC 6475 ;Gromada Ptolemeusza ;gromada otwarta ;1;3.5;img/messier/M7m.jpg;img/messier/M7.jpg
-8;M8;NGC 6523 ;Mgławica Laguna ;mgławica dyfuzyjna/gromada gwiazd ;6.5;5;dddd;ddd
-9;M9;NGC 6333 ;;gromada kulista ;26;9;dddd;ddd
-10;M10;NGC 6254 ;;gromada kulista ;13;7.5;dddd;ddd
-11;M11;NGC 6705 ;Gromada Dzika Kaczka ;gromada otwarta ;6;7;dddd;ddd
-12;M12;NGC 6218 ;;gromada kulista ;18;8;dddd;ddd
-13;M13;NGC 6205 ;Gromada Herkulesa ;gromada kulista ;22;5.8;dddd;ddd
+8;M8;NGC 6523 ;Mgławica Laguna ;mgławica dyfuzyjna/gromada gwiazd ;6.5;5;img/messier/M8m.jpg;img/messier/M8.jpg
+9;M9;NGC 6333 ;;gromada kulista ;26;9;img/messier/M9m.jpg;img/messier/M9.jpg
+10;M10;NGC 6254 ;;gromada kulista ;13;7.5;img/messier/M10m.jpg;img/messier/M10.jpg
+11;M11;NGC 6705 ;Gromada Dzika Kaczka ;gromada otwarta ;6;7;img/messier/M11m.jpg;img/messier/M11.jpg
+12;M12;NGC 6218 ;;gromada kulista ;18;8;img/messier/M12m.jpg;img/messier/M12.jpg
+13;M13;NGC 6205 ;Gromada Herkulesa ;gromada kulista ;22;5.8;img/messier/M13m.jpg;img/messier/M13.jpg
 14;M14;NGC 6402 ;;gromada kulista ;27;9.5;dddd;ddd
 15;M15;NGC 7078 ;;gromada kulista ;33;7.5;dddd;ddd
 16;M16;NGC 6611 ;Mgławica Orzeł ;mgławica emisyjna ;7;6.5;dddd;ddd
