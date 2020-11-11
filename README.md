@@ -1,5 +1,5 @@
 # Astronomical-Objects
-> Project of website with Spring technology.
+> Project of website with Spring technology about astronomy.
 
 ## Table of contents
 * [General info](#general-info)
