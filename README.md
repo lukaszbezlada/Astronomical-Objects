@@ -68,11 +68,8 @@ List of features ready and TODOs for future development
 * Preview on the site of all users in the database by the administrator
 * Editing user accounts by the administrator
 
-To-do list:
-* Add more Messier objects
-
 ## Status
-Project is: _in progress_.
+Project is: _finished_.
 
 ## Inspiration
 This project was created for learning Java and Spring technologies. The subject was chosen due to the author's interests :) Materials from wikipedia.org were used.
