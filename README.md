@@ -15,7 +15,7 @@
 ## General info
 The project was created for learning Spring technology.
 On created page there are a list and photos of many astronomical objects available for observation for every astronomy enthusiast (read from a CSV file).
-In addition, the option of creating an account and adding your own sky observation photos has been added. There are two types of user accounts in the project: for ordinary users and for administrators.
+In addition, the option of creating an account and adding your own sky observation photos to MySQL database has been added. There are two types of user accounts in the project: for ordinary users and for administrators. Database was created with Hibernate library.
 The project has an API created using Spring Data Rest.
 Website content and information were created from wikipedia.org sources.
 
