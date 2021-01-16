@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/oldApi")
+@RequestMapping("/oldApi") //THIS LITLLE API WAS MADE TO PRACTICE, THE ACTUAL API WAS MADE BY SPRING DATA REST
 public class SkyObjectRestController {
 
     private SkyObjectRepository skyObjectRepository;
