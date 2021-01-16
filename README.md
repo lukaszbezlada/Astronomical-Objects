@@ -60,7 +60,6 @@ Step 3. Download project and run it in IDE or deploy astronomical-objects-0.0.1-
 Step 4. Website will be by default at http://localhost:8080/ and API http://localhost:8080/api
 
 ## Features
-List of features ready and TODOs for future development
 * Loading astronomical catalog from CSV file
 * Account creation by the user
 * Adding and browsing own astronomical objects by users
