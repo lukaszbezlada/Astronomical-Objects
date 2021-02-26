@@ -29,6 +29,7 @@ public class SkyObjectRepositoryTests {
     private UserRepository userRepository;
 
     private SkyObject skyObject;
+    private SkyObject skyObjectFound;
 
     @Before
     public void createRepository() {
@@ -45,9 +46,10 @@ public class SkyObjectRepositoryTests {
     public void whenFindByNameContains_thenReturnSkyObject() {
         // when
         Optional<SkyObject> found = skyObjectRepository.findSkyObjectByNameContains("first");
+        found.ifPresent(object -> skyObjectFound = object);
 
         // then
-        assertThat(found.get().getName())
+        assertThat(skyObjectFound.getName())
                 .isEqualTo(skyObject.getName());
     }
 

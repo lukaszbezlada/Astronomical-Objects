@@ -26,11 +26,10 @@ public class SkyObjectServiceTests {
     UserRepository userRepository;
 
     private SkyObject skyObject;
-    private User user1;
 
     @Before
     public void setUp() {
-        user1 = new User("userLogin", "pass", "user", "user", "ggg@oo.pl", null, null);
+        User user1 = new User("userLogin", "pass", "user", "user", "ggg@oo.pl", null, null);
         userRepository.save(user1);
         skyObject = new SkyObject(1L, "firstObject", "22.10.2019", "path", user1);
         skyObjectRepository.save(skyObject);
