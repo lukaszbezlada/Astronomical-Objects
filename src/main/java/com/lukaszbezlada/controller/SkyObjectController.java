@@ -19,6 +19,8 @@ public class SkyObjectController {
 
     private static final String imagePath = "src/main/resources/static/img/users/";
     private static final String imageShortPath = "img/users/";
+
+
     private final SkyObjectService skyObjectService;
 
     @Autowired
